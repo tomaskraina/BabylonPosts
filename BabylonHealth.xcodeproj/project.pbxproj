@@ -36,6 +36,9 @@
 		9C4DE377218860A900EBD16F /* BabylonHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DE37B218860A900EBD16F /* BabylonHealthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonHealthTests.swift; sourceTree = "<group>"; };
 		9C4DE37D218860A900EBD16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C4DE386218862A600EBD16F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9C4DE387218862A600EBD16F /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		9C4DE388218862A600EBD16F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,9 @@
 		9C4DE35A218860A800EBD16F = {
 			isa = PBXGroup;
 			children = (
+				9C4DE388218862A600EBD16F /* README.md */,
+				9C4DE387218862A600EBD16F /* Cartfile */,
+				9C4DE386218862A600EBD16F /* LICENSE */,
 				9C4DE365218860A800EBD16F /* BabylonHealth */,
 				9C4DE37A218860A900EBD16F /* BabylonHealthTests */,
 				9C4DE364218860A800EBD16F /* Products */,
@@ -360,7 +366,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BabylonHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,6 +375,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,7 +385,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BabylonHealth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +394,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
