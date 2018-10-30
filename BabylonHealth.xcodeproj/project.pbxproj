@@ -12,7 +12,6 @@
 		9C4DE36C218860A800EBD16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36A218860A800EBD16F /* Main.storyboard */; };
 		9C4DE36E218860A900EBD16F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36D218860A900EBD16F /* Assets.xcassets */; };
 		9C4DE371218860A900EBD16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36F218860A900EBD16F /* LaunchScreen.storyboard */; };
-		9C4DE37C218860A900EBD16F /* BabylonHealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE37B218860A900EBD16F /* BabylonHealthTests.swift */; };
 		9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38A2188654400EBD16F /* JSONPlaceholderEndpoint.swift */; };
 		9C4DE3922188654400EBD16F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38B2188654400EBD16F /* Networking.swift */; };
 		9C4DE3932188654400EBD16F /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38C2188654400EBD16F /* NetworkingError.swift */; };
@@ -30,6 +29,9 @@
 		9C4DE3B021886A5800EBD16F /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A821886A5700EBD16F /* RxDataSources.framework */; };
 		9C4DE3B121886A5800EBD16F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A921886A5700EBD16F /* Alamofire.framework */; };
 		9C4DE3B221886A5800EBD16F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3AA21886A5800EBD16F /* RxCocoa.framework */; };
+		9C4DE3B521886C2D00EBD16F /* PostDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B421886C2D00EBD16F /* PostDecodableTests.swift */; };
+		9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */; };
+		9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,6 @@
 		9C4DE370218860A900EBD16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C4DE372218860A900EBD16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C4DE377218860A900EBD16F /* BabylonHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C4DE37B218860A900EBD16F /* BabylonHealthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonHealthTests.swift; sourceTree = "<group>"; };
 		9C4DE37D218860A900EBD16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C4DE386218862A600EBD16F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9C4DE387218862A600EBD16F /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -73,6 +74,9 @@
 		9C4DE3A821886A5700EBD16F /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		9C4DE3A921886A5700EBD16F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9C4DE3AA21886A5800EBD16F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		9C4DE3B421886C2D00EBD16F /* PostDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDecodableTests.swift; sourceTree = "<group>"; };
+		9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodableTests.swift; sourceTree = "<group>"; };
+		9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDecodableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +145,9 @@
 		9C4DE37A218860A900EBD16F /* BabylonHealthTests */ = {
 			isa = PBXGroup;
 			children = (
-				9C4DE37B218860A900EBD16F /* BabylonHealthTests.swift */,
+				9C4DE3B421886C2D00EBD16F /* PostDecodableTests.swift */,
+				9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */,
+				9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */,
 				9C4DE37D218860A900EBD16F /* Info.plist */,
 			);
 			path = BabylonHealthTests;
@@ -338,7 +344,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C4DE37C218860A900EBD16F /* BabylonHealthTests.swift in Sources */,
+				9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */,
+				9C4DE3B521886C2D00EBD16F /* PostDecodableTests.swift in Sources */,
+				9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
