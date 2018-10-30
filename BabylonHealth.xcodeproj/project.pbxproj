@@ -13,6 +13,15 @@
 		9C4DE36E218860A900EBD16F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36D218860A900EBD16F /* Assets.xcassets */; };
 		9C4DE371218860A900EBD16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36F218860A900EBD16F /* LaunchScreen.storyboard */; };
 		9C4DE37C218860A900EBD16F /* BabylonHealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE37B218860A900EBD16F /* BabylonHealthTests.swift */; };
+		9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38A2188654400EBD16F /* JSONPlaceholderEndpoint.swift */; };
+		9C4DE3922188654400EBD16F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38B2188654400EBD16F /* Networking.swift */; };
+		9C4DE3932188654400EBD16F /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38C2188654400EBD16F /* NetworkingError.swift */; };
+		9C4DE3962188654400EBD16F /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3902188654400EBD16F /* Typealiases.swift */; };
+		9C4DE399218867AB00EBD16F /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE397218867AA00EBD16F /* Identifier.swift */; };
+		9C4DE39A218867AB00EBD16F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE398218867AB00EBD16F /* ApiClient.swift */; };
+		9C4DE39D2188683D00EBD16F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE39C2188683D00EBD16F /* Post.swift */; };
+		9C4DE39F2188687300EBD16F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE39E2188687300EBD16F /* User.swift */; };
+		9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3A0218868B400EBD16F /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +48,15 @@
 		9C4DE386218862A600EBD16F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9C4DE387218862A600EBD16F /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		9C4DE388218862A600EBD16F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9C4DE38A2188654400EBD16F /* JSONPlaceholderEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderEndpoint.swift; sourceTree = "<group>"; };
+		9C4DE38B2188654400EBD16F /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		9C4DE38C2188654400EBD16F /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		9C4DE3902188654400EBD16F /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		9C4DE397218867AA00EBD16F /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		9C4DE398218867AB00EBD16F /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		9C4DE39C2188683D00EBD16F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		9C4DE39E2188687300EBD16F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C4DE3A0218868B400EBD16F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +107,8 @@
 				9C4DE36D218860A900EBD16F /* Assets.xcassets */,
 				9C4DE36F218860A900EBD16F /* LaunchScreen.storyboard */,
 				9C4DE372218860A900EBD16F /* Info.plist */,
+				9C4DE39B218867B000EBD16F /* Model */,
+				9C4DE3892188654400EBD16F /* Networking */,
 			);
 			path = BabylonHealth;
 			sourceTree = "<group>";
@@ -100,6 +120,29 @@
 				9C4DE37D218860A900EBD16F /* Info.plist */,
 			);
 			path = BabylonHealthTests;
+			sourceTree = "<group>";
+		};
+		9C4DE3892188654400EBD16F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9C4DE38A2188654400EBD16F /* JSONPlaceholderEndpoint.swift */,
+				9C4DE38B2188654400EBD16F /* Networking.swift */,
+				9C4DE38C2188654400EBD16F /* NetworkingError.swift */,
+				9C4DE3902188654400EBD16F /* Typealiases.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9C4DE39B218867B000EBD16F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C4DE398218867AB00EBD16F /* ApiClient.swift */,
+				9C4DE397218867AA00EBD16F /* Identifier.swift */,
+				9C4DE39C2188683D00EBD16F /* Post.swift */,
+				9C4DE39E2188687300EBD16F /* User.swift */,
+				9C4DE3A0218868B400EBD16F /* Comment.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +246,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C4DE3962188654400EBD16F /* Typealiases.swift in Sources */,
+				9C4DE39D2188683D00EBD16F /* Post.swift in Sources */,
+				9C4DE399218867AB00EBD16F /* Identifier.swift in Sources */,
 				9C4DE369218860A800EBD16F /* ViewController.swift in Sources */,
+				9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */,
 				9C4DE367218860A800EBD16F /* AppDelegate.swift in Sources */,
+				9C4DE3922188654400EBD16F /* Networking.swift in Sources */,
+				9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */,
+				9C4DE39F2188687300EBD16F /* User.swift in Sources */,
+				9C4DE3932188654400EBD16F /* NetworkingError.swift in Sources */,
+				9C4DE39A218867AB00EBD16F /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
