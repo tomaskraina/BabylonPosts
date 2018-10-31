@@ -55,7 +55,7 @@ enum JSONPlaceholderEndpoint {
 extension JSONPlaceholderEndpoint: Endpoint {
     
     var baseURL: URL {
-        return URL(string: "http://jsonplaceholder.typicode.com/")!
+        return URL(string: "https://jsonplaceholder.typicode.com/")!
     }
     
     var path: String {
