@@ -12,17 +12,33 @@ import RxSwift
 import RxBlocking
 import Alamofire
 
-class ApiClientIntegrationTests: XCTestCase {
+private func createApiClient() -> ApiClient {
+    // Use ephemeral config in order to avoid url cache
+    let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)
+    let networking = Networking.init(manager: sessionManager)
+    let apiClient = ApiClient.init(networking: networking)
+    return apiClient
+}
 
+class ApiClientIntegrationTests: XCTestCase {
+    
     func testRequestPostList() throws {
-        
-        // Use ephemeral config in order to avoid url cache
-        let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)
-        let networking = Networking.init(manager: sessionManager)
-        let apiClient = ApiClient.init(networking: networking)
-        
+        let apiClient = createApiClient()
         let result = try apiClient.requestPostList().toBlocking(timeout: 100).single()
         XCTAssertFalse(result.isEmpty)
+    }
+    
+    func testRequestUserList() throws {
+        let apiClient = createApiClient()
+        let result = try apiClient.requestUserList().toBlocking(timeout: 100).single()
+        XCTAssertFalse(result.isEmpty)
+    }
+    
+    func testRequestCommentList() throws {
+        let apiClient = createApiClient()
+        let id = Identifier<Post>(integerLiteral: 1)
+        let result = try apiClient.requestComments(postId: id) .toBlocking(timeout: 100).single()
+        XCTAssertEqual(result.first?.postID, id)
     }
 
 }
