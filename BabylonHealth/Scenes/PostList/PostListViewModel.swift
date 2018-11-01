@@ -30,7 +30,7 @@ protocol PostListViewModelling {
 
 class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     
-    typealias Dependencies = AnyObject // TODO:
+    typealias Dependencies = HasApiClient
     
     init(dependencies: Dependencies) {
         

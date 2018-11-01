@@ -9,7 +9,17 @@
 import Foundation
 import RxSwift
 
-class ApiClient {
+// MARK: - Protocols
+
+protocol ApiClient {
+    func requestPostList() -> Observable<Posts>
+    func requestUserList() -> Observable<Users>
+    func requestComments(postId: Identifier<Post>) -> Observable<Comments>
+}
+
+// MARK: - Implementation
+
+class JSONPlaceholderApiClient: ApiClient {
     
     init(networking: NetworkingProvider) {
         self.networking = networking
@@ -17,19 +27,16 @@ class ApiClient {
     
     let networking: NetworkingProvider
     
-    @discardableResult
     func requestPostList() -> Observable<Posts> {
         let endpoint = JSONPlaceholderEndpoint.posts
         return networking.request(endpoint: endpoint)
     }
     
-    @discardableResult
     func requestUserList() -> Observable<Users> {
         let endpoint = JSONPlaceholderEndpoint.users
         return networking.request(endpoint: endpoint)
     }
     
-    @discardableResult
     func requestComments(postId: Identifier<Post>) -> Observable<Comments> {
         let endpoint = JSONPlaceholderEndpoint.comments(postId: postId)
         return networking.request(endpoint: endpoint)

@@ -31,9 +31,9 @@ protocol PostDetailViewModelling {
 
 class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs {
     
-    typealias Dependencies = AnyObject // TODO:
+    typealias Dependencies = HasApiClient
     
-    init(dependencies: Dependencies) {
+    init(post: Post, dependencies: Dependencies) {
         
     }
     
