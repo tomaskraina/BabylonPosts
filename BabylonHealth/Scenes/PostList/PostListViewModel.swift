@@ -7,3 +7,43 @@
 //
 
 import Foundation
+import RxSwift
+import RxDataSources
+
+
+// MARK: - Protocols
+
+protocol PostListViewModelInputs {
+    
+}
+
+protocol PostListViewModelOutputs {
+    
+}
+
+protocol PostListViewModelling {
+    var inputs: PostListViewModelInputs { get }
+    var outputs: PostListViewModelOutputs { get }
+}
+
+// MARK: - Implementation
+
+class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
+    
+    typealias Dependencies = AnyObject // TODO:
+    
+    init(dependencies: Dependencies) {
+        
+    }
+}
+
+// MARK: - PostListViewModel+PostListViewModelling
+extension PostListViewModel: PostListViewModelling {
+    var inputs: PostListViewModelInputs {
+        return self
+    }
+    
+    var outputs: PostListViewModelOutputs {
+        return self
+    }
+}
