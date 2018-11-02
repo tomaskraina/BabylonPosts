@@ -15,8 +15,8 @@ import Alamofire
 private func createApiClient() -> ApiClient {
     // Use ephemeral config in order to avoid url cache
     let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)
-    let networking = Networking.init(manager: sessionManager)
-    let apiClient = ApiClient.init(networking: networking)
+    let networking = Networking(manager: sessionManager)
+    let apiClient = JSONPlaceholderApiClient(networking: networking)
     return apiClient
 }
 
