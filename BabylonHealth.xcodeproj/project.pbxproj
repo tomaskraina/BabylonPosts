@@ -31,6 +31,7 @@
 		9C4A267E218B2716009316C1 /* UIView+nibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4A267D218B2716009316C1 /* UIView+nibLoading.swift */; };
 		9C4A2680218B281A009316C1 /* UIView+fullSizeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4A267F218B281A009316C1 /* UIView+fullSizeConstraints.swift */; };
 		9C4A2682218C4D9E009316C1 /* UIAlertController+makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4A2681218C4D9E009316C1 /* UIAlertController+makeAlert.swift */; };
+		9C4A268E21919BF4009316C1 /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4A268D21919BF4009316C1 /* MockApiClient.swift */; };
 		9C4DE367218860A800EBD16F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE366218860A800EBD16F /* AppDelegate.swift */; };
 		9C4DE36E218860A900EBD16F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36D218860A900EBD16F /* Assets.xcassets */; };
 		9C4DE371218860A900EBD16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DE36F218860A900EBD16F /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		9C4A267D218B2716009316C1 /* UIView+nibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+nibLoading.swift"; sourceTree = "<group>"; };
 		9C4A267F218B281A009316C1 /* UIView+fullSizeConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fullSizeConstraints.swift"; sourceTree = "<group>"; };
 		9C4A2681218C4D9E009316C1 /* UIAlertController+makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+makeAlert.swift"; sourceTree = "<group>"; };
+		9C4A268D21919BF4009316C1 /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
 		9C4DE363218860A800EBD16F /* BabylonHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DE366218860A800EBD16F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C4DE36D218860A900EBD16F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4DE398218867AB00EBD16F /* ApiClient.swift */,
+				9C4A268D21919BF4009316C1 /* MockApiClient.swift */,
 				9C4DE397218867AA00EBD16F /* Identifier.swift */,
 				9C4DE39C2188683D00EBD16F /* Post.swift */,
 				9C4DE39E2188687300EBD16F /* User.swift */,
@@ -477,6 +480,7 @@
 				9C4A2680218B281A009316C1 /* UIView+fullSizeConstraints.swift in Sources */,
 				9C4A2674218AFBA2009316C1 /* Dependencies.swift in Sources */,
 				9C4DE3962188654400EBD16F /* Typealiases.swift in Sources */,
+				9C4A268E21919BF4009316C1 /* MockApiClient.swift in Sources */,
 				9C4A2654218AEF72009316C1 /* PostDetailViewController.swift in Sources */,
 				9C4DE39D2188683D00EBD16F /* Post.swift in Sources */,
 				9C4DE399218867AB00EBD16F /* Identifier.swift in Sources */,
