@@ -32,13 +32,13 @@ class PostListViewController: UITableViewController {
         tableView.register(PostTableViewCell.nib()!, forCellReuseIdentifier: PostTableViewCell.nibName())
         setupBinding()
         
-        viewModel.inputs.reload()
+        viewModel.inputs.reloadInput.onNext(())
     }
 
     // MARK: - IBAction
     
     @IBAction func pulledToRefresh() {
-        viewModel?.inputs.reload()
+        viewModel.inputs.reloadInput.onNext(())
     }
     
     // MARK: - Helpers
@@ -62,34 +62,37 @@ class PostListViewController: UITableViewController {
     private func setupBinding() {
         guard isViewLoaded else { return }
         
-        viewModel?.outputs.tableContents.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        viewModel?.outputs.tableContents
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
         tableView.rx.modelSelected(Post.self)
             .subscribe(onNext: { [unowned self] in
                 self.delegate?.postList(viewController: self, didSelect: $0) }
             ).disposed(by: disposeBag)
         
-        viewModel?.outputs.onError.map({ [weak viewModel] error in
+        viewModel?.outputs.onError
+            .map({ [weak viewModel] error in
             UIAlertController.makeAlert(networkError: error, retryHandler: {
-                viewModel?.inputs.reload()
+                viewModel?.inputs.reloadInput.onNext(())
             })
-        }).subscribe(onNext: { [weak self] alert in
+        }).drive(onNext: { [weak self] (alert) in
             self?.present(alert, animated: true)
         }).disposed(by: disposeBag)
         
-        
-        viewModel?.outputs.isRefreshing.bind(to: tableView.refreshControl!.rx.isRefreshing)
+        viewModel?.outputs.isRefreshing
+            .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
         
         tableView.refreshControl!.rx
             .controlEvent(.valueChanged)
-            .bind(onNext: { [weak self] _ in
-                self?.pulledToRefresh() // TODO: Some kind of Rx action instead of calling the method manually
-            })
+            .bind(to: viewModel.inputs.reloadInput)
             .disposed(by: disposeBag)
     }
     
     private func makeRefreshControl() -> UIRefreshControl {
         let refreshControl = UIRefreshControl()
+        // No need to set up target-action here as rx binding is used instead
         return refreshControl
     }
 }
