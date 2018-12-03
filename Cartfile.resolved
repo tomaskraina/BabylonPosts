@@ -1,4 +1,6 @@
-github "Alamofire/Alamofire" "4.7.3"
+github "Alamofire/Alamofire" "4.8.0"
 github "Otbivnoe/CodableAlamofire" "1.1.0"
-github "ReactiveX/RxSwift" "4.3.1"
+github "ReactiveX/RxSwift" "4.4.0"
 github "RxSwiftCommunity/RxDataSources" "3.1.0"
+github "RxSwiftCommunity/RxRealm" "0.7.6"
+github "realm/realm-cocoa" "v3.12.0"

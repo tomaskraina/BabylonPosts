@@ -54,6 +54,9 @@
 		9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */; };
 		9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */; };
 		9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */; };
+		9CE0F75721B5764800C0F057 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75421B5764800C0F057 /* Realm.framework */; };
+		9CE0F75821B5764800C0F057 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75521B5764800C0F057 /* RxRealm.framework */; };
+		9CE0F75921B5764800C0F057 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75621B5764800C0F057 /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientIntegrationTests.swift; sourceTree = "<group>"; };
+		9CE0F75421B5764800C0F057 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		9CE0F75521B5764800C0F057 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
+		9CE0F75621B5764800C0F057 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE0F75721B5764800C0F057 /* Realm.framework in Frameworks */,
+				9CE0F75821B5764800C0F057 /* RxRealm.framework in Frameworks */,
+				9CE0F75921B5764800C0F057 /* RealmSwift.framework in Frameworks */,
 				9C4DE3AC21886A5800EBD16F /* CodableAlamofire.framework in Frameworks */,
 				9C4DE3AD21886A5800EBD16F /* Differentiator.framework in Frameworks */,
 				9C4DE3AF21886A5800EBD16F /* RxSwift.framework in Frameworks */,
@@ -300,6 +309,9 @@
 		9C4DE3A221886A5700EBD16F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CE0F75421B5764800C0F057 /* Realm.framework */,
+				9CE0F75621B5764800C0F057 /* RealmSwift.framework */,
+				9CE0F75521B5764800C0F057 /* RxRealm.framework */,
 				9C4DE3A921886A5700EBD16F /* Alamofire.framework */,
 				9C4DE3A421886A5700EBD16F /* CodableAlamofire.framework */,
 				9C4DE3A521886A5700EBD16F /* Differentiator.framework */,
@@ -446,25 +458,15 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"$(SRCROOT)/Carthage/xcfilelists/BabylonHealth-inputPaths.xcfilelist",
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CodableAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
+				"$(SRCROOT)/Carthage/xcfilelists/BabylonHealth-outputPaths.xcfilelist",
 			);
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CodableAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxDataSources.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Differentiator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
