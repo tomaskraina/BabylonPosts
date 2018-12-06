@@ -47,8 +47,6 @@ class UserDecodableTests: XCTestCase {
         XCTAssertEqual(user.id.rawValue, 1)
         XCTAssertEqual(user.name, "Leanne Graham")
         XCTAssertEqual(user.email, "Sincere@april.biz")
-        XCTAssertEqual(user.address.street, "Kulas Light")
-        XCTAssertEqual(user.company.name, "Romaguera-Crona")
     }
     
     func testDecodeNormalUsersResponse() throws {

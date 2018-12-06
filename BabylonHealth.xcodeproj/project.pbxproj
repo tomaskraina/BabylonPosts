@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3BD21721A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */; };
 		9C4A263B2189AF1F009316C1 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A621886A5700EBD16F /* RxBlocking.framework */; };
 		9C4A263C2189AF1F009316C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A721886A5700EBD16F /* RxSwift.framework */; };
 		9C4A263D2189AF1F009316C1 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A321886A5700EBD16F /* RxTest.framework */; };
@@ -76,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistentStorageTests.swift; sourceTree = "<group>"; };
 		9C4A263E2189B46A009316C1 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		9C4A26412189B498009316C1 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		9C4A26432189B82A009316C1 /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */,
+				9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */,
 				9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */,
 				9C4DE3B421886C2D00EBD16F /* PostDecodableTests.swift */,
 				9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */,
@@ -548,6 +551,7 @@
 				9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */,
 				9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */,
 				9C4A26422189B498009316C1 /* helpers.swift in Sources */,
+				9C3BD21721A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

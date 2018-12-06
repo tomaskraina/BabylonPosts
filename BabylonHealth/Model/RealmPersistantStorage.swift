@@ -26,6 +26,8 @@ protocol PersistentStorage {
 }
 
 class RealmPersistantStorage: PersistentStorage {
+
+    // TODO: Handle Realm errors
     
     func posts() -> Observable<Posts> {
         let realm = try! Realm()
