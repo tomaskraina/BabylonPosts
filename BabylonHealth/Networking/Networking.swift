@@ -39,13 +39,13 @@ class Networking: NetworkingProvider {
                 switch dataResponse.result {
                 case .success(let value):
                     observer.onNext(value)
+                    observer.onCompleted()
                     
                 case .failure(let error):
                     let networkingError = NetworkingError.init(error: error, httpUrlResponse: dataResponse.response)
                     observer.onError(networkingError)
                 }
                 
-                observer.onCompleted()
             }
             
             dataRequest.resume()

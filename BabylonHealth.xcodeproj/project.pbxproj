@@ -54,9 +54,13 @@
 		9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */; };
 		9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */; };
 		9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */; };
+		9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75221B5762700C0F057 /* PostObject.swift */; };
 		9CE0F75721B5764800C0F057 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75421B5764800C0F057 /* Realm.framework */; };
 		9CE0F75821B5764800C0F057 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75521B5764800C0F057 /* RxRealm.framework */; };
 		9CE0F75921B5764800C0F057 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75621B5764800C0F057 /* RealmSwift.framework */; };
+		9CE0F75C21B57CFF00C0F057 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75B21B57CFF00C0F057 /* UserObject.swift */; };
+		9CE0F75E21B57DB300C0F057 /* CommentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75D21B57DB300C0F057 /* CommentObject.swift */; };
+		9CE0F76021B841A300C0F057 /* RealmPersistantStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,9 +127,13 @@
 		9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientIntegrationTests.swift; sourceTree = "<group>"; };
+		9CE0F75221B5762700C0F057 /* PostObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostObject.swift; sourceTree = "<group>"; };
 		9CE0F75421B5764800C0F057 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9CE0F75521B5764800C0F057 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
 		9CE0F75621B5764800C0F057 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		9CE0F75B21B57CFF00C0F057 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		9CE0F75D21B57DB300C0F057 /* CommentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentObject.swift; sourceTree = "<group>"; };
+		9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistantStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,11 +305,13 @@
 			isa = PBXGroup;
 			children = (
 				9C4DE398218867AB00EBD16F /* ApiClient.swift */,
+				9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */,
 				9C4A268D21919BF4009316C1 /* MockApiClient.swift */,
 				9C4DE397218867AA00EBD16F /* Identifier.swift */,
 				9C4DE39C2188683D00EBD16F /* Post.swift */,
 				9C4DE39E2188687300EBD16F /* User.swift */,
 				9C4DE3A0218868B400EBD16F /* Comment.swift */,
+				9CE0F75A21B57B2900C0F057 /* Realm Objects */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +332,16 @@
 				9C4DE3A321886A5700EBD16F /* RxTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CE0F75A21B57B2900C0F057 /* Realm Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9CE0F75221B5762700C0F057 /* PostObject.swift */,
+				9CE0F75B21B57CFF00C0F057 /* UserObject.swift */,
+				9CE0F75D21B57DB300C0F057 /* CommentObject.swift */,
+			);
+			path = "Realm Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,7 +511,9 @@
 				9C4A266B218AF387009316C1 /* MainFlowCoordinator.swift in Sources */,
 				9C4A2678218AFDEC009316C1 /* PostTableViewCell.swift in Sources */,
 				9C4A2670218AF555009316C1 /* Assets.swift in Sources */,
+				9CE0F75C21B57CFF00C0F057 /* UserObject.swift in Sources */,
 				9C4A264C218AEEE9009316C1 /* PostListViewController.swift in Sources */,
+				9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */,
 				9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */,
 				9C4A2682218C4D9E009316C1 /* UIAlertController+makeAlert.swift in Sources */,
 				9C4DE367218860A800EBD16F /* AppDelegate.swift in Sources */,
@@ -499,7 +521,9 @@
 				9C4A267C218B002E009316C1 /* PostTableViewCellModel.swift in Sources */,
 				9C4DE3922188654400EBD16F /* Networking.swift in Sources */,
 				9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */,
+				9CE0F76021B841A300C0F057 /* RealmPersistantStorage.swift in Sources */,
 				9C4DE39F2188687300EBD16F /* User.swift in Sources */,
+				9CE0F75E21B57DB300C0F057 /* CommentObject.swift in Sources */,
 				9C4A2671218AF555009316C1 /* Storyboard Scenes.swift in Sources */,
 				9C4DE3932188654400EBD16F /* NetworkingError.swift in Sources */,
 				9C4DE39A218867AB00EBD16F /* ApiClient.swift in Sources */,

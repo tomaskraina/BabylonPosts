@@ -33,6 +33,12 @@ class PostListViewController: UITableViewController {
         setupBinding()
         
         viewModel.inputs.reloadInput.onNext(())
+        
+        let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = deleteItem
+        deleteItem.rx.tap.subscribe(onNext: { [weak viewModel] _ in
+            viewModel?.inputs.deleteData()
+        }).disposed(by: disposeBag)
     }
 
     // MARK: - IBAction

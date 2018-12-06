@@ -13,3 +13,7 @@ import Foundation
 protocol HasApiClient {
     var apiClient: ApiClient { get }
 }
+
+protocol HasPersistenceStorage {
+    var storage: PersistentStorage { get }
+}

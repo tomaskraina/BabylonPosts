@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,8 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         struct AppDependencies: MainFlowCoordinator.Dependencies {
+            var storage: PersistentStorage {
+                return RealmPersistantStorage()
+            }
+            
             var apiClient: ApiClient {
-                return JSONPlaceholderApiClient.init(networking: Networking.shared)
+//                return MockApiClient()
+                
+                // Use ephemeral config in order to avoid url cache
+                let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)
+                let networking = Networking(manager: sessionManager)
+                return JSONPlaceholderApiClient.init(networking: networking)
             }
         }
         

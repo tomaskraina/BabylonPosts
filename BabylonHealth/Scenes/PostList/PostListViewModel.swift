@@ -11,6 +11,8 @@ import RxSwift
 import RxDataSources
 import RxCocoa
 
+import RealmSwift
+import RxRealm
 
 // MARK: - Protocols
 
@@ -19,6 +21,8 @@ protocol PostListViewModelInputs {
     // TODO: Maybe using something like InputSubject<T> would suit better? https://github.com/RxSwiftCommunity/Action
     /// Trigger the data reload by calling `.onNext(())` method on this property
     var reloadInput: PublishSubject<Void> { get }
+    
+    func deleteData()
 }
 
 protocol PostListViewModelOutputs {
@@ -39,27 +43,33 @@ protocol PostListViewModelling: AnyObject {
 
 class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     
-    typealias Dependencies = HasApiClient
+    typealias Dependencies = HasApiClient & HasPersistenceStorage
     
     init(dependencies: Dependencies) {
         apiClient = dependencies.apiClient
+        storage = dependencies.storage
+
+        tableContents = storage.posts()
+            .asDriver(onErrorJustReturn: [])
+            .map { [SectionModel(model: 0, items: $0)] }
         
         reloadInput.subscribe(onNext: { [unowned self] _ in
             self.reload()
         }).disposed(by: disposeBag)
+        
     }
     
     // MARK: Inputs
     
     let reloadInput = PublishSubject<Void>()
     
+    func deleteData() {
+        storage.deletePosts()
+    }
+    
     // MARK: Outputs
     
-    var tableContents: Driver<[SectionModel<Int, Post>]> {
-        return posts.asDriver().map() {
-            [SectionModel(model: 0, items: $0)]
-        }
-    }
+    let tableContents: Driver<[SectionModel<Int, Post>]>
     
     var onError: Driver<Error> {
         return error
@@ -85,15 +95,17 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     
     private let disposeBag = DisposeBag()
     
-    private let posts = Variable<Posts>([])
-    
     private let apiClient: ApiClient
+    
+    private let storage: PersistentStorage
     
     private let isLoading = Variable<Bool>(false)
     
     private let error = Variable<Error?>(nil)
     
     func reload() {
+        // TODO: rewrite in a reactive way input -> request -> realm
+        
         // Don't fire multiple requests at once
         guard isLoading.value == false else { return }
         
@@ -101,11 +113,11 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
         
         apiClient.requestPostList()
             .do(onError: { [weak self] (error) in
-                self?.error.value = error
-                }, onDispose: { [weak self] in
-                    self?.isLoading.value = false
-            })
-            .bind(to: posts)
+            self?.error.value = error
+            }, onDispose: { [weak self] in
+                self?.isLoading.value = false
+        })
+            .subscribe(storage.storePosts())
             .disposed(by: disposeBag)
     }
 }
