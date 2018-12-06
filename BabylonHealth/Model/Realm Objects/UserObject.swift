@@ -21,17 +21,18 @@ class UserObject: Object {
     }
 }
 
+// MARK: - ItemUpdateable
 extension UserObject: ItemUpdateable {
     
     typealias ItemType = User
     
-    convenience init(item: ItemType, realm: Realm) {
+    convenience init(item: ItemType, realm: Realm?) {
         self.init()
         
         self.id = item.id.rawValue
         update(with: item)
         
-        realm.add(self)
+        realm?.add(self)
     }
     
     @discardableResult
@@ -42,5 +43,23 @@ extension UserObject: ItemUpdateable {
         email = item.email
         
         return self
+    }
+}
+
+// MARK: - PersistentObjectConvertible
+extension User: PersistentObjectConvertible {
+    typealias ObjectType = UserObject
+    
+    init(from object: ObjectType) {
+        self.init(
+            id: Identifier<User>(rawValue: object.id),
+            name: object.name,
+            username: object.username,
+            email: object.email
+        )
+    }
+    
+    func persistentObject() -> ObjectType {
+        return ObjectType(item: self, realm: nil)
     }
 }

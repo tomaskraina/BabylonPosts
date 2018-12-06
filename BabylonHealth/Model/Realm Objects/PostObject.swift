@@ -21,14 +21,7 @@ class PostObject: Object {
     }
 }
 
-
-// TODO: Move to its own file
-protocol ItemUpdateable: AnyObject {
-    associatedtype ItemType
-    
-    func update(with item: ItemType) -> Self
-}
-
+// MARK: - ItemUpdateable
 extension PostObject: ItemUpdateable {
     
     typealias ItemType = Post
@@ -53,20 +46,8 @@ extension PostObject: ItemUpdateable {
     }
 }
 
-
-protocol ItemRepresetable {
-    associatedtype ItemType
-    
-    func item() -> ItemType
-}
-
-extension PostObject: ItemRepresetable {
-    func item() -> Post {
-        return Post(from: self)
-    }
-}
-
-extension Post {
+// MARK: - PersistentObjectConvertible
+extension Post: PersistentObjectConvertible {
     typealias ObjectType = PostObject
     
     init(from object: ObjectType) {
@@ -76,5 +57,9 @@ extension Post {
             title: object.title,
             body: object.body
         )
+    }
+    
+    func persistentObject() -> ObjectType {
+        return ObjectType(item: self, realm: nil)
     }
 }

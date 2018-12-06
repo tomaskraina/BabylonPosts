@@ -22,26 +22,47 @@ class CommentObject: Object {
     }
 }
 
+// MARK: - ItemUpdateable
 extension CommentObject: ItemUpdateable {
     
     typealias ItemType = Comment
     
-    convenience init(item: ItemType, realm: Realm) {
+    convenience init(item: ItemType, realm: Realm?) {
         self.init()
         
         self.id = item.id.rawValue
         update(with: item)
         
-        realm.add(self)
+        realm?.add(self)
     }
     
     @discardableResult
     func update(with item: ItemType) -> Self {
         
+        postId = item.postID.rawValue
         name = item.name
         email = item.email
         body = item.body
         
         return self
+    }
+}
+
+// MARK: - PersistentObjectConvertible
+extension Comment {
+    typealias ObjectType = CommentObject
+    
+    init(from object: ObjectType) {
+        self.init(
+            id: Identifier<Comment>(rawValue: object.id),
+            postID: Identifier<Post>(rawValue: object.postId),
+            name: object.name,
+            email: object.email,
+            body: object.body
+        )
+    }
+    
+    func persistentObject() -> ObjectType {
+        return ObjectType(item: self, realm: nil)
     }
 }

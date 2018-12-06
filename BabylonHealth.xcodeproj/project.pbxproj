@@ -61,6 +61,8 @@
 		9CE0F75C21B57CFF00C0F057 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75B21B57CFF00C0F057 /* UserObject.swift */; };
 		9CE0F75E21B57DB300C0F057 /* CommentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75D21B57DB300C0F057 /* CommentObject.swift */; };
 		9CE0F76021B841A300C0F057 /* RealmPersistantStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */; };
+		9CE0F76221B97AB500C0F057 /* PersistentObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F76121B97AB500C0F057 /* PersistentObjectConvertible.swift */; };
+		9CE0F76421B97D2000C0F057 /* ItemUpdateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F76321B97D2000C0F057 /* ItemUpdateable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		9CE0F75B21B57CFF00C0F057 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		9CE0F75D21B57DB300C0F057 /* CommentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentObject.swift; sourceTree = "<group>"; };
 		9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistantStorage.swift; sourceTree = "<group>"; };
+		9CE0F76121B97AB500C0F057 /* PersistentObjectConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentObjectConvertible.swift; sourceTree = "<group>"; };
+		9CE0F76321B97D2000C0F057 /* ItemUpdateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUpdateable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				9C4A2673218AFBA2009316C1 /* Dependencies.swift */,
+				9CE0F76121B97AB500C0F057 /* PersistentObjectConvertible.swift */,
+				9CE0F76321B97D2000C0F057 /* ItemUpdateable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -517,7 +523,9 @@
 				9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */,
 				9C4A2682218C4D9E009316C1 /* UIAlertController+makeAlert.swift in Sources */,
 				9C4DE367218860A800EBD16F /* AppDelegate.swift in Sources */,
+				9CE0F76221B97AB500C0F057 /* PersistentObjectConvertible.swift in Sources */,
 				9C4A2650218AEF22009316C1 /* PostListViewModel.swift in Sources */,
+				9CE0F76421B97D2000C0F057 /* ItemUpdateable.swift in Sources */,
 				9C4A267C218B002E009316C1 /* PostTableViewCellModel.swift in Sources */,
 				9C4DE3922188654400EBD16F /* Networking.swift in Sources */,
 				9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */,

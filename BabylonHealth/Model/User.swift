@@ -13,9 +13,13 @@ typealias Users = [User]
 struct User: Codable, Identifiable, Equatable, Hashable {
     let id: Identifier<User>
     let name, username, email: String
-    let address: Address
-    let phone, website: String
-    let company: Company
+    
+    // Uncomment if more info about the user is needed
+    // If uncommented, you need to update User+
+//    let address: Address
+//    let phone, website: String
+//    let company: Company
+    
 }
 
 struct Address: Codable, Equatable, Hashable {

@@ -41,6 +41,31 @@ protocol PostDetailViewModelling {
 
 class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs {
     
+    typealias Dependencies = HasApiClient & HasPersistenceStorage
+    
+    init(post: Post, dependencies: Dependencies) {
+        self.apiClient = dependencies.apiClient
+        self.storage = dependencies.storage
+        
+        self.post = Variable<Post>(post)
+        
+        apiClient.requestUserList()
+            .debug("requestUserList", trimOutput: true)
+            .subscribe(storage.storeUsers())
+            .disposed(by: disposeBag)
+        
+        apiClient.requestComments(postId: post.id)
+            .debug("requestComments", trimOutput: true)
+            .subscribe(storage.storeComments())
+            .disposed(by: disposeBag)
+        
+        user = storage.user(id: post.userID)
+            .debug("storage.user", trimOutput: true)
+        
+        commentCount = storage.commentCount(for: post.id)
+            .debug("storage.commentCount", trimOutput: true)
+    }
+    
     var authorNameCaption: Driver<String> {
         return Driver.just("Author") // TODO: L10n
     }
@@ -53,62 +78,25 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
         return Driver.just("Number of comments") // TODO: L10n
     }
     
-    
-    typealias Dependencies = HasApiClient
-    
-    init(post: Post, dependencies: Dependencies) {
-        self.apiClient = dependencies.apiClient
-        self.post = Variable<Post>(post)
-        
-        // TODO: Do this differently as apiClient is captured
-        self.user = self.post.asObservable().flatMap({ [apiClient] (post) -> Observable<User> in
-            return apiClient.requestUserList()
-                .debug("users request", trimOutput: true)
-                .map({ $0.first(where: { $0.id == post.userID }) })
-                .flatMap({ value -> Observable<User> in
-                    if let value = value {
-                        return Observable.just(value)
-                    } else {
-                        return Observable.empty()
-                    }
-                }).debug("user", trimOutput: true)
-        })
-        
-        self.comments = self.post.asObservable()
-            .flatMap({ [apiClient] (post) -> Observable<Comments> in
-            return apiClient.requestComments(postId: post.id)
-            }).debug("comments", trimOutput: true)
-    }
-    
     var title: Driver<String> {
         return Driver.just("Post detail") // TODO: L10n
     }
     
     var authorName: Driver<String> {
-        return user.map({ $0.username })
-            .do(onNext: { [weak self] (_) in
-                self?.isLoadingUserVariable.value = false
-                }, onSubscribe: { [weak self] in
-                    self?.isLoadingUserVariable.value = true
-            }).startWith("")
+        return user.map { $0.username }
+            .startWith("")
             .asDriver(onErrorJustReturn: "N/A")
     }
     
     var postDescription: Driver<String> {
-        return post.asObservable().map({ $0.body })
+        return post.asObservable().map { $0.body }
             .startWith("")
             .asDriver(onErrorJustReturn: "N/A")
     }
     
     var numberOfComment: Driver<String> {
-        return comments
-            .map({ $0.count })
+        return commentCount
             .map(String.init)
-            .do(onNext: { [weak self] (_) in
-                self?.isLoadingCommentsVariable.value = false
-                }, onSubscribe: { [weak self] in
-                    self?.isLoadingCommentsVariable.value = true
-            })
             .startWith("")
             .asDriver(onErrorJustReturn: "N/A")
     }
@@ -128,17 +116,21 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     
     // MARK: - Privates
     
-    private let post: Variable<Post>
-    
     private let apiClient: ApiClient
+    
+    private let storage: PersistentStorage
+    
+    private let post: Variable<Post>
     
     private let user: Observable<User>
     
-    private let comments: Observable<Comments>
+    private let commentCount: Observable<Int>
     
     private let isLoadingUserVariable: Variable<Bool> = .init(false)
     
     private let isLoadingCommentsVariable: Variable<Bool> = .init(false)
+    
+    private let disposeBag = DisposeBag()
     
 }
 
