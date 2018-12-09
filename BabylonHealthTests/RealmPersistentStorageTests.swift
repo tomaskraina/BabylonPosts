@@ -8,9 +8,26 @@
 
 import XCTest
 @testable import BabylonHealth
+import RealmSwift
 
 class RealmPersistentStorageTests: XCTestCase {
 
+    override class func setUp() {
+        // Use in-memory database for testing instead of the default one
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "com.tomkraina.BabylonHealtTests.inMemory"
+    }
+    
+    override func setUp() {
+        super.setUp()
+        
+        // Delete all data in Realm before each test case
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+    
+    
     func testStoreAndRetrievePosts() throws {
         
         // Given
