@@ -64,7 +64,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     let reloadInput = PublishSubject<Void>()
     
     func deleteData() {
-        storage.deletePosts()
+        storage.deleteAllData()
     }
     
     // MARK: Outputs

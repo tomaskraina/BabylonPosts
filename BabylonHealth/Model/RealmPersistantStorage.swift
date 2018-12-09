@@ -15,7 +15,6 @@ import RealmSwift
 protocol PersistentStorage {
     func posts() -> Observable<Posts>
     func storePosts() -> AnyObserver<Posts>
-    func deletePosts()
     
     func user(id: Identifier<User>) -> Observable<User>
     func storeUsers() -> RxSwift.AnyObserver<Users>
@@ -23,6 +22,8 @@ protocol PersistentStorage {
     func comments(for postId: Identifier<Post>) -> Observable<Comments>
     func commentCount(for postId: Identifier<Post>) -> Observable<Int>
     func storeComments() -> RxSwift.AnyObserver<Comments>
+    
+    func deleteAllData()
 }
 
 class RealmPersistantStorage: PersistentStorage {
@@ -30,6 +31,7 @@ class RealmPersistantStorage: PersistentStorage {
     // TODO: Handle Realm errors
     
     func posts() -> Observable<Posts> {
+
         let realm = try! Realm()
         let postObjects = realm.objects(PostObject.self)
             .sorted(byKeyPath: "id", ascending: false)
@@ -45,13 +47,6 @@ class RealmPersistantStorage: PersistentStorage {
         let realm = try! Realm()
         return realm.rx.add(update: true)
             .mapObserver { $0.map { $0.persistentObject() }}
-    }
-    
-    func deletePosts() {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
-        }
     }
     
     // MARK: - Users
@@ -118,6 +113,15 @@ class RealmPersistantStorage: PersistentStorage {
         let realm = try! Realm()
         return realm.rx.add(update: true)
             .mapObserver { $0.map { $0.persistentObject() }}
+    }
+    
+    // MARK: - Deletion
+    
+    func deleteAllData() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
 }
 
