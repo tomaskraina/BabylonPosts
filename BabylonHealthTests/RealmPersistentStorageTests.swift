@@ -9,6 +9,7 @@
 import XCTest
 @testable import BabylonHealth
 import RealmSwift
+import RxSwift
 
 class RealmPersistentStorageTests: XCTestCase {
 
@@ -32,13 +33,13 @@ class RealmPersistentStorageTests: XCTestCase {
         
         // Given
         let posts: Posts = try JSON(named: "posts")
+        let storage: PersistentStorage = RealmPersistantStorage()
+        let storage2: PersistentStorage = RealmPersistantStorage()
         
         // When
-        let storage: PersistentStorage = RealmPersistantStorage()
-        storage.storePosts().onNext(posts)
+        storage.storePosts(onError: nil).onNext(posts)
         
         // Then
-        let storage2: PersistentStorage = RealmPersistantStorage()
         let result = try storage2.posts()
             .toBlocking(timeout: 1)
             .first()
@@ -51,13 +52,13 @@ class RealmPersistentStorageTests: XCTestCase {
         
         // Given
         let users: Users = try JSON(named: "users")
+        let storage: PersistentStorage = RealmPersistantStorage()
+        let storage2: PersistentStorage = RealmPersistantStorage()
         
         // When
-        let storage: PersistentStorage = RealmPersistantStorage()
-        storage.storeUsers().onNext(users)
+        storage.storeUsers(onError: nil).onNext(users)
         
         // Then
-        let storage2: PersistentStorage = RealmPersistantStorage()
         let result = try storage2.user(id: 1)
             .toBlocking(timeout: 1)
             .first()
@@ -70,18 +71,42 @@ class RealmPersistentStorageTests: XCTestCase {
         
         // Given
         let comments: Comments = try JSON(named: "comments")
+        let storage: PersistentStorage = RealmPersistantStorage()
+        let storage2: PersistentStorage = RealmPersistantStorage()
         
         // When
-        let storage: PersistentStorage = RealmPersistantStorage()
-        storage.storeComments().onNext(comments)
+        storage.storeComments(onError: nil).onNext(comments)
         
         // Then
-        let storage2: PersistentStorage = RealmPersistantStorage()
         let result = try storage2.commentCount(for: 1)
             .toBlocking(timeout: 1)
             .first()
         
         XCTAssertNotNil(result)
         XCTAssertEqual(result, 5)
+    }
+    
+    func testStoreCommentsError() throws {
+        
+        // Given
+        let recordedError = Variable<Error?>(nil)
+        let comments: Comments = try JSON(named: "comments")
+        let config = Realm.Configuration.init(fileURL: URL(fileURLWithPath: "/invalidPath"))
+        let storage: PersistentStorage = RealmPersistantStorage(configuration: config)
+        
+        // When
+        storage.storeComments(onError: { recordedError.value = $0 }).onNext(comments)
+        
+        // Then
+        let error = try! recordedError.asObservable().toBlocking(timeout: 1).first()!
+        XCTAssertNotNil(error)
+        
+        guard let error1 = error else { return }
+        
+        if case RealmPersistantStorage.Error.realmFailedToInitiate(_) = error1 {
+            // All good
+        } else {
+            XCTFail("Unknown error returned error: \(error1)")
+        }
     }
 }

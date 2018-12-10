@@ -51,12 +51,12 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
         
         apiClient.requestUserList()
             .debug("requestUserList", trimOutput: true)
-            .subscribe(storage.storeUsers())
+            .subscribe(storage.storeUsers(onError: nil))
             .disposed(by: disposeBag)
         
         apiClient.requestComments(postId: post.id)
             .debug("requestComments", trimOutput: true)
-            .subscribe(storage.storeComments())
+            .subscribe(storage.storeComments(onError: nil))
             .disposed(by: disposeBag)
         
         user = storage.user(id: post.userID)

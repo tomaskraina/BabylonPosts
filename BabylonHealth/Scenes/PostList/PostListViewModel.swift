@@ -64,7 +64,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     let reloadInput = PublishSubject<Void>()
     
     func deleteData() {
-        storage.deleteAllData()
+        storage.deleteAllData(onError: nil)
     }
     
     // MARK: Outputs
@@ -117,7 +117,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
             }, onDispose: { [weak self] in
                 self?.isLoading.value = false
         })
-            .subscribe(storage.storePosts())
+            .subscribe(storage.storePosts { [error] in error.value = $0 })
             .disposed(by: disposeBag)
     }
 }
