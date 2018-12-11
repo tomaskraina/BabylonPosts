@@ -21,139 +21,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UI1-zL-T3l" userLabel="Scroll View Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0zx-ww-Be3">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="304"/>
+                                                <rect key="frame" x="8" y="0.0" width="359" height="199"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="El4-7Q-leY" customClass="CaptionValueLabelPair" customModule="BabylonHealth" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="96"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7ES-8g-I0T">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="96"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9C-a5-944">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="45.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c4l-tv-bR8">
-                                                                        <rect key="frame" x="0.0" y="50.5" width="359" height="45.5"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xd-mi-xEs" userLabel="Value">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bwx-hm-kKy">
-                                                                                <rect key="frame" x="0.0" y="25.5" width="359" height="20"/>
-                                                                            </activityIndicatorView>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="El4-7Q-leY" customClass="CaptionValueLabelPairView" customModule="BabylonHealth" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="61"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="7ES-8g-I0T" secondAttribute="bottom" id="5eM-Tg-gkj"/>
-                                                            <constraint firstItem="7ES-8g-I0T" firstAttribute="top" secondItem="El4-7Q-leY" secondAttribute="top" id="eRP-l6-nxH"/>
-                                                            <constraint firstItem="7ES-8g-I0T" firstAttribute="leading" secondItem="El4-7Q-leY" secondAttribute="leading" id="xCp-KH-ccG"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7ES-8g-I0T" secondAttribute="trailing" id="zKJ-p5-SQk"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="activityIndicator" destination="bwx-hm-kKy" id="t8o-RC-sxn"/>
-                                                            <outlet property="captionLabel" destination="m9C-a5-944" id="CXk-Ms-Eob"/>
-                                                            <outlet property="loadingValueContainer" destination="c4l-tv-bR8" id="Q9k-Ej-JfO"/>
-                                                            <outlet property="valueLabel" destination="8xd-mi-xEs" id="9n0-ce-LI4"/>
-                                                        </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9a-aK-4TJ" customClass="CaptionValueLabelPair" customModule="BabylonHealth" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="104" width="359" height="96"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-lA-Umj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="96"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR0-8G-aah">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="45.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zU4-gn-lca">
-                                                                        <rect key="frame" x="0.0" y="50.5" width="359" height="45.5"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UD-kN-SRd" userLabel="Value">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hCy-cH-zMK">
-                                                                                <rect key="frame" x="0.0" y="25.5" width="359" height="20"/>
-                                                                            </activityIndicatorView>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9a-aK-4TJ" customClass="CaptionValueLabelPairView" customModule="BabylonHealth" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="69" width="359" height="61"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="ZDy-lA-Umj" firstAttribute="leading" secondItem="Y9a-aK-4TJ" secondAttribute="leading" id="Xdy-BU-PId"/>
-                                                            <constraint firstItem="ZDy-lA-Umj" firstAttribute="top" secondItem="Y9a-aK-4TJ" secondAttribute="top" id="ieu-yE-82o"/>
-                                                            <constraint firstAttribute="bottom" secondItem="ZDy-lA-Umj" secondAttribute="bottom" id="qOZ-ac-zF0"/>
-                                                            <constraint firstAttribute="trailing" secondItem="ZDy-lA-Umj" secondAttribute="trailing" id="tI2-50-yln"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="activityIndicator" destination="hCy-cH-zMK" id="doX-M9-jnr"/>
-                                                            <outlet property="captionLabel" destination="YR0-8G-aah" id="3hJ-2a-u5F"/>
-                                                            <outlet property="loadingValueContainer" destination="zU4-gn-lca" id="9mu-xO-MTH"/>
-                                                            <outlet property="valueLabel" destination="6UD-kN-SRd" id="ol2-au-8hV"/>
-                                                        </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zw-6x-EXj" customClass="CaptionValueLabelPair" customModule="BabylonHealth" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="208" width="359" height="96"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8cf-8u-meM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="96"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-5p-zJS">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="45.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WVa-rg-lCq">
-                                                                        <rect key="frame" x="0.0" y="50.5" width="359" height="45.5"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BL-5D-OPe" userLabel="Value">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NUN-cY-bsy">
-                                                                                <rect key="frame" x="0.0" y="25.5" width="359" height="20"/>
-                                                                            </activityIndicatorView>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zw-6x-EXj" customClass="CaptionValueLabelPairView" customModule="BabylonHealth" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="138" width="359" height="61"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="8cf-8u-meM" firstAttribute="leading" secondItem="7zw-6x-EXj" secondAttribute="leading" id="1o9-4J-Csz"/>
-                                                            <constraint firstAttribute="bottom" secondItem="8cf-8u-meM" secondAttribute="bottom" id="4m4-YB-mYn"/>
-                                                            <constraint firstItem="8cf-8u-meM" firstAttribute="top" secondItem="7zw-6x-EXj" secondAttribute="top" id="Iv1-di-aSN"/>
-                                                            <constraint firstAttribute="trailing" secondItem="8cf-8u-meM" secondAttribute="trailing" id="jOb-BA-RH8"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="activityIndicator" destination="NUN-cY-bsy" id="Wwk-Tq-abR"/>
-                                                            <outlet property="captionLabel" destination="gF9-5p-zJS" id="YME-nh-Jk1"/>
-                                                            <outlet property="loadingValueContainer" destination="WVa-rg-lCq" id="XwO-GF-Nl6"/>
-                                                            <outlet property="valueLabel" destination="8BL-5D-OPe" id="6PZ-OR-HHO"/>
-                                                        </connections>
                                                     </view>
                                                 </subviews>
                                             </stackView>

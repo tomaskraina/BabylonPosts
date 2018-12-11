@@ -10,36 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-// TODO: Refactor to its own file
-extension UIFont {
-    static var caption: UIFont {
-        return UIFont.preferredFont(forTextStyle: .caption1)
-    }
-    
-    static var value: UIFont {
-        return UIFont.preferredFont(forTextStyle: .body)
-    }
-}
-
-
-// TODO: Refactor to its own file
-class CaptionValueLabelPair: UIView {
-    @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet weak var loadingValueContainer: UIView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        captionLabel.font = .caption
-        valueLabel.font = .value
-        
-        loadingValueContainer.heightAnchor.constraint(greaterThanOrEqualToConstant: 28).isActive = true
-    }
-}
-
 class PostDetailViewController: UIViewController {
 
     // MARK: - Configuration
@@ -48,9 +18,9 @@ class PostDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var authorName: CaptionValueLabelPair!
-    @IBOutlet weak var postDescription: CaptionValueLabelPair!
-    @IBOutlet weak var numberOfComments: CaptionValueLabelPair!
+    @IBOutlet weak var authorName: CaptionValueLabelPairView!
+    @IBOutlet weak var postDescription: CaptionValueLabelPairView!
+    @IBOutlet weak var numberOfComments: CaptionValueLabelPairView!
     
     // MARK: - UIViewController lifecycle
     

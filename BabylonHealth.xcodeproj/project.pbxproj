@@ -55,6 +55,9 @@
 		9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */; };
 		9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */; };
 		9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */; };
+		9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */; };
+		9CC8019121BF0C6D008511CF /* CaptionValueLabelPairView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC8019021BF0C6D008511CF /* CaptionValueLabelPairView.xib */; };
+		9CC8019321BF0E35008511CF /* UIFont+constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8019221BF0E35008511CF /* UIFont+constants.swift */; };
 		9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75221B5762700C0F057 /* PostObject.swift */; };
 		9CE0F75721B5764800C0F057 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75421B5764800C0F057 /* Realm.framework */; };
 		9CE0F75821B5764800C0F057 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75521B5764800C0F057 /* RxRealm.framework */; };
@@ -131,6 +134,9 @@
 		9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientIntegrationTests.swift; sourceTree = "<group>"; };
+		9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionValueLabelPairView.swift; sourceTree = "<group>"; };
+		9CC8019021BF0C6D008511CF /* CaptionValueLabelPairView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptionValueLabelPairView.xib; sourceTree = "<group>"; };
+		9CC8019221BF0E35008511CF /* UIFont+constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+constants.swift"; sourceTree = "<group>"; };
 		9CE0F75221B5762700C0F057 /* PostObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostObject.swift; sourceTree = "<group>"; };
 		9CE0F75421B5764800C0F057 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9CE0F75521B5764800C0F057 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 				9C4A267D218B2716009316C1 /* UIView+nibLoading.swift */,
 				9C4A267F218B281A009316C1 /* UIView+fullSizeConstraints.swift */,
 				9C4A2681218C4D9E009316C1 /* UIAlertController+makeAlert.swift */,
+				9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */,
+				9CC8019021BF0C6D008511CF /* CaptionValueLabelPairView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				9C4A264D218AEEF1009316C1 /* Scenes */,
 				9C4A267A218AFDF1009316C1 /* Views */,
 				9C4DE366218860A800EBD16F /* AppDelegate.swift */,
+				9CC8019221BF0E35008511CF /* UIFont+constants.swift */,
 				9C4DE36D218860A900EBD16F /* Assets.xcassets */,
 				9C4DE36F218860A900EBD16F /* LaunchScreen.storyboard */,
 				9C4DE372218860A900EBD16F /* Info.plist */,
@@ -440,6 +449,7 @@
 				9C4A2679218AFDEC009316C1 /* PostTableViewCell.xib in Resources */,
 				9C4DE371218860A900EBD16F /* LaunchScreen.storyboard in Resources */,
 				9C4DE36E218860A900EBD16F /* Assets.xcassets in Resources */,
+				9CC8019121BF0C6D008511CF /* CaptionValueLabelPairView.xib in Resources */,
 				9C4A2658218AEF83009316C1 /* PostDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +531,7 @@
 				9C4A2678218AFDEC009316C1 /* PostTableViewCell.swift in Sources */,
 				9C4A2670218AF555009316C1 /* Assets.swift in Sources */,
 				9CE0F75C21B57CFF00C0F057 /* UserObject.swift in Sources */,
+				9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */,
 				9C4A264C218AEEE9009316C1 /* PostListViewController.swift in Sources */,
 				9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */,
 				9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */,
@@ -532,6 +543,7 @@
 				9C4A267C218B002E009316C1 /* PostTableViewCellModel.swift in Sources */,
 				9C4DE3922188654400EBD16F /* Networking.swift in Sources */,
 				9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */,
+				9CC8019321BF0E35008511CF /* UIFont+constants.swift in Sources */,
 				9CE0F76021B841A300C0F057 /* RealmPersistantStorage.swift in Sources */,
 				9C4DE39F2188687300EBD16F /* User.swift in Sources */,
 				9CE0F75E21B57DB300C0F057 /* CommentObject.swift in Sources */,
