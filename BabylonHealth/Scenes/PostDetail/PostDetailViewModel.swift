@@ -49,21 +49,35 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
         
         self.post = Variable<Post>(post)
         
+        let requestingUserList = ActivityTracker()
+        
         apiClient.requestUserList()
             .debug("requestUserList", trimOutput: true)
+            .trackActivity(requestingUserList)
             .subscribe(storage.storeUsers(onError: nil))
             .disposed(by: disposeBag)
         
+        let requestingComments = ActivityTracker()
+        
         apiClient.requestComments(postId: post.id)
             .debug("requestComments", trimOutput: true)
+            .trackActivity(requestingComments)
             .subscribe(storage.storeComments(onError: nil))
             .disposed(by: disposeBag)
         
         user = storage.user(id: post.userID)
             .debug("storage.user", trimOutput: true)
         
+        isLoadingAuthorName = Observable
+            .merge(requestingUserList.asObservable(), user.map { _ in false } )
+            .asDriver(onErrorJustReturn: false)
+        
         commentCount = storage.commentCount(for: post.id)
             .debug("storage.commentCount", trimOutput: true)
+        
+        isLoadingNumberOfComments = Observable
+            .merge(requestingComments.asObservable(), commentCount.map { $0 == 0 } )
+            .asDriver(onErrorJustReturn: false)
     }
     
     var authorNameCaption: Driver<String> {
@@ -97,21 +111,24 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     var numberOfComment: Driver<String> {
         return commentCount
             .map(String.init)
+            .withLatestFrom(isLoadingNumberOfComments.asObservable(), resultSelector: { (count, isLoading) -> String in
+                if count == "0" && isLoading {
+                    return ""
+                } else {
+                    return count
+                }
+            })
             .startWith("")
             .asDriver(onErrorJustReturn: "N/A")
     }
     
-    var isLoadingAuthorName: Driver<Bool> {
-        return isLoadingUserVariable.asDriver()
-    }
+    let isLoadingAuthorName: Driver<Bool>
     
     var isLoadingPostDescription: Driver<Bool> {
         return Driver.just(false)
     }
     
-    var isLoadingNumberOfComments: Driver<Bool> {
-        return isLoadingCommentsVariable.asDriver()
-    }
+    let isLoadingNumberOfComments: Driver<Bool>
     
     
     // MARK: - Privates
@@ -125,10 +142,6 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     private let user: Observable<User>
     
     private let commentCount: Observable<Int>
-    
-    private let isLoadingUserVariable: Variable<Bool> = .init(false)
-    
-    private let isLoadingCommentsVariable: Variable<Bool> = .init(false)
     
     private let disposeBag = DisposeBag()
     

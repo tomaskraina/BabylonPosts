@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C08475A21BFC95D0085E0F0 /* RxActivityTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */; };
 		9C3BD21721A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */; };
 		9C4A263B2189AF1F009316C1 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A621886A5700EBD16F /* RxBlocking.framework */; };
 		9C4A263C2189AF1F009316C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A721886A5700EBD16F /* RxSwift.framework */; };
@@ -80,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActivityTracker.swift; sourceTree = "<group>"; };
 		9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistentStorageTests.swift; sourceTree = "<group>"; };
 		9C4A263E2189B46A009316C1 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		9C4A26412189B498009316C1 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				9C4DE372218860A900EBD16F /* Info.plist */,
 				9C4DE39B218867B000EBD16F /* Model */,
 				9C4DE3892188654400EBD16F /* Networking */,
+				9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */,
 			);
 			path = BabylonHealth;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */,
 				9C4A264C218AEEE9009316C1 /* PostListViewController.swift in Sources */,
 				9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */,
+				9C08475A21BFC95D0085E0F0 /* RxActivityTracker.swift in Sources */,
 				9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */,
 				9C4A2682218C4D9E009316C1 /* UIAlertController+makeAlert.swift in Sources */,
 				9C4DE367218860A800EBD16F /* AppDelegate.swift in Sources */,
