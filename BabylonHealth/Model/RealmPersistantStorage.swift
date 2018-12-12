@@ -79,6 +79,9 @@ class RealmPersistantStorage: PersistentStorage {
     
     func user(id: Identifier<User>) -> Observable<User> {
         return withRealm({ realm in
+            
+            // We use object() + predicate here instead of object(:forPrimaryKey:) in order
+            // to get notified when an object with the pripary key is added to the Realm
             let predicate = NSPredicate(format: "id = %d", id.rawValue)
             let objects = realm.objects(UserObject.self)
                 .filter(predicate)
