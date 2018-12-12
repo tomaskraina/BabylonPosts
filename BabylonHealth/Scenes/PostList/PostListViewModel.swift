@@ -13,15 +13,12 @@ import RxCocoa
 
 import RealmSwift
 import RxRealm
+import Action
 
 // MARK: - Protocols
 
 protocol PostListViewModelInputs {
-    
-    // TODO: Maybe using something like InputSubject<T> would suit better? https://github.com/RxSwiftCommunity/Action
-    /// Trigger the data reload by calling `.onNext(())` method on this property
-    var reloadInput: PublishSubject<Void> { get }
-    
+    var reloadAction: Action<Void, Void> { get }
     func deleteData()
 }
 
@@ -49,22 +46,27 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
         apiClient = dependencies.apiClient
         storage = dependencies.storage
 
+        reloadAction = Action<Void, Void> { [apiClient, storage] _ -> Observable<Void> in
+            Observable.create({ (observer) -> Disposable in
+                return apiClient.requestPostList()
+                    .do(onError: { observer.onError($0) }, onCompleted: { observer.onCompleted() })
+                    .subscribe(storage.storePosts { observer.onError($0) })
+            })
+        }
+        
         tableContents = storage.posts()
             .asDriver(onErrorJustReturn: [])
             .map { [SectionModel(model: 0, items: $0)] }
-        
-        reloadInput.subscribe(onNext: { [unowned self] _ in
-            self.reload()
-        }).disposed(by: disposeBag)
-        
     }
     
     // MARK: Inputs
     
-    let reloadInput = PublishSubject<Void>()
+    let reloadAction: Action<Void, Void>
     
     func deleteData() {
-        storage.deleteAllData(onError: nil)
+        storage.deleteAllData { [errorVariable] in
+            errorVariable.value = $0
+        }
     }
     
     // MARK: Outputs
@@ -72,54 +74,46 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     let tableContents: Driver<[SectionModel<Int, Post>]>
     
     var onError: Driver<Error> {
-        return error
+        let actionErrors: Driver<Error> = reloadAction.errors
+            .asDriver(onErrorJustReturn: .notEnabled)
+            .map {
+                if case let ActionError.underlyingError(error) = $0 {
+                    return error
+                } else {
+                    return nil
+                }
+            }
+            .filter { $0 != nil }
+            .map { $0! }
+        
+        let otherErrors: Driver<Error> = errorVariable
             .asDriver()
-            // TODO: Find a better way how to unwrap the optional
-            .filter({ $0 != nil })
-            .map({ $0! })
+            .filter { $0 != nil }
+            .map { $0! }
+        
+        return Driver.merge(actionErrors, otherErrors)
     }
     
     var isRefreshing: Driver<Bool> {
-        return isLoading.asDriver()
-            // Delay the delivery of false in order to make the UI work nicer
+        return reloadAction.executing
+            .asDriver(onErrorJustReturn: false)
             .flatMapLatest({ (value) in
-            if value {
-                return Driver.just(value)
-            } else {
-                return Driver.just(value).delay(1)
-            }
-        })
+                // Delay the delivery of false in order to make the UI work nicer
+                if value {
+                    return Driver.just(value)
+                } else {
+                    return Driver.just(value).delay(0.5)
+                }
+            })
     }
 
     // MARK: - Privates
-    
-    private let disposeBag = DisposeBag()
     
     private let apiClient: ApiClient
     
     private let storage: PersistentStorage
     
-    private let isLoading = Variable<Bool>(false)
-    
-    private let error = Variable<Error?>(nil)
-    
-    func reload() {
-        // TODO: rewrite in a reactive way input -> request -> realm
-        
-        // Don't fire multiple requests at once
-        guard isLoading.value == false else { return }
-        
-        isLoading.value = true
-        
-        apiClient.requestPostList()
-            .do(onError: { [weak self] (error) in
-            self?.error.value = error
-            }, onDispose: { [weak self] in
-                self?.isLoading.value = false
-        })
-            .subscribe(storage.storePosts { [error] in error.value = $0 })
-            .disposed(by: disposeBag)
-    }
+    private let errorVariable = Variable<Error?>(nil)
 }
 
 // MARK: - PostListViewModel+PostListViewModelling

@@ -4,3 +4,4 @@ github "ReactiveX/RxSwift" ~> 4.0
 github "RxSwiftCommunity/RxDataSources"
 github "RxSwiftCommunity/RxRealm" ~> 0.7.3
 github "realm/realm-cocoa" ~> 3.7.4
+github "RxSwiftCommunity/Action" ~> 3.6.0

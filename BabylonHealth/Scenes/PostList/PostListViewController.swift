@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Action
 
 protocol PostListViewControllerDelegate: AnyObject {
     func postList(viewController: PostListViewController, didSelect post: Post)
@@ -32,7 +33,7 @@ class PostListViewController: UITableViewController {
         tableView.register(PostTableViewCell.nib()!, forCellReuseIdentifier: PostTableViewCell.nibName())
         setupBinding()
         
-        viewModel.inputs.reloadInput.onNext(())
+        viewModel.inputs.reloadAction.execute(())
         
         let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: nil, action: nil)
         navigationItem.rightBarButtonItem = deleteItem
@@ -44,7 +45,8 @@ class PostListViewController: UITableViewController {
     // MARK: - IBAction
     
     @IBAction func pulledToRefresh() {
-        viewModel.inputs.reloadInput.onNext(())
+        viewModel.inputs.reloadAction.execute(())
+
     }
     
     // MARK: - Helpers
@@ -80,7 +82,7 @@ class PostListViewController: UITableViewController {
         viewModel?.outputs.onError
             .map({ [weak viewModel] error in
             UIAlertController.makeAlert(networkError: error, retryHandler: {
-                viewModel?.inputs.reloadInput.onNext(())
+                viewModel?.inputs.reloadAction.execute(())
             })
         }).drive(onNext: { [weak self] (alert) in
             self?.present(alert, animated: true)
@@ -92,7 +94,7 @@ class PostListViewController: UITableViewController {
         
         tableView.refreshControl!.rx
             .controlEvent(.valueChanged)
-            .bind(to: viewModel.inputs.reloadInput)
+            .bind(to: viewModel.inputs.reloadAction.inputs)
             .disposed(by: disposeBag)
     }
     

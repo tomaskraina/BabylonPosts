@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C08475A21BFC95D0085E0F0 /* RxActivityTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */; };
+		9C08475C21BFD94B0085E0F0 /* Action.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C08475B21BFD94B0085E0F0 /* Action.framework */; };
 		9C3BD21721A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */; };
 		9C4A263B2189AF1F009316C1 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A621886A5700EBD16F /* RxBlocking.framework */; };
 		9C4A263C2189AF1F009316C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4DE3A721886A5700EBD16F /* RxSwift.framework */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActivityTracker.swift; sourceTree = "<group>"; };
+		9C08475B21BFD94B0085E0F0 /* Action.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Action.framework; path = Carthage/Build/iOS/Action.framework; sourceTree = "<group>"; };
 		9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPersistentStorageTests.swift; sourceTree = "<group>"; };
 		9C4A263E2189B46A009316C1 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		9C4A26412189B498009316C1 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C08475C21BFD94B0085E0F0 /* Action.framework in Frameworks */,
 				9CE0F75721B5764800C0F057 /* Realm.framework in Frameworks */,
 				9CE0F75821B5764800C0F057 /* RxRealm.framework in Frameworks */,
 				9CE0F75921B5764800C0F057 /* RealmSwift.framework in Frameworks */,
@@ -340,6 +343,7 @@
 		9C4DE3A221886A5700EBD16F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C08475B21BFD94B0085E0F0 /* Action.framework */,
 				9CE0F75421B5764800C0F057 /* Realm.framework */,
 				9CE0F75621B5764800C0F057 /* RealmSwift.framework */,
 				9CE0F75521B5764800C0F057 /* RxRealm.framework */,
