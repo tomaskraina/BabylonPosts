@@ -21,21 +21,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UI1-zL-T3l" userLabel="Scroll View Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0zx-ww-Be3">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="199"/>
+                                                <rect key="frame" x="8" y="20" width="359" height="304"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="El4-7Q-leY" customClass="CaptionValueLabelPairView" customModule="BabylonHealth" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="61"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="96"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9a-aK-4TJ" customClass="CaptionValueLabelPairView" customModule="BabylonHealth" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="69" width="359" height="61"/>
+                                                        <rect key="frame" x="0.0" y="104" width="359" height="96"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zw-6x-EXj" customClass="CaptionValueLabelPairView" customModule="BabylonHealth" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="138" width="359" height="61"/>
+                                                        <rect key="frame" x="0.0" y="208" width="359" height="96"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -44,8 +44,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="0zx-ww-Be3" firstAttribute="leading" secondItem="UI1-zL-T3l" secondAttribute="leadingMargin" id="0cG-kp-w8M"/>
-                                            <constraint firstAttribute="bottom" secondItem="0zx-ww-Be3" secondAttribute="bottom" id="DyA-Kb-hfq"/>
-                                            <constraint firstItem="0zx-ww-Be3" firstAttribute="top" secondItem="UI1-zL-T3l" secondAttribute="top" id="IAh-bU-amI"/>
+                                            <constraint firstAttribute="bottom" secondItem="0zx-ww-Be3" secondAttribute="bottom" constant="20" id="DyA-Kb-hfq"/>
+                                            <constraint firstItem="0zx-ww-Be3" firstAttribute="top" secondItem="UI1-zL-T3l" secondAttribute="top" constant="20" id="IAh-bU-amI"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="0zx-ww-Be3" secondAttribute="trailing" id="UFt-Dp-5ne"/>
                                         </constraints>
                                     </view>
