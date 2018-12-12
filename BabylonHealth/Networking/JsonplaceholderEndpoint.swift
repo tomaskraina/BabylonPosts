@@ -48,6 +48,7 @@ extension Endpoint {
 enum JSONPlaceholderEndpoint {
     case posts
     case users
+    case user(id: Identifier<User>)
     case comments(postId: Identifier<Post>)
 }
 
@@ -63,7 +64,7 @@ extension JSONPlaceholderEndpoint: Endpoint {
         case .posts:
             return "posts"
             
-        case .users:
+        case .users, .user:
             return "users"
             
         case .comments:
@@ -76,6 +77,11 @@ extension JSONPlaceholderEndpoint: Endpoint {
         case let .comments(postId):
             return [
                 "postId": postId.rawValue
+            ]
+            
+        case let .user(id):
+            return [
+                "id": id.rawValue
             ]
             
         default:

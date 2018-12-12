@@ -34,6 +34,24 @@ class ApiClientIntegrationTests: XCTestCase {
         XCTAssertFalse(result.isEmpty)
     }
     
+    func testRequestUserDetail() throws {
+        let apiClient = createApiClient()
+        let id = Identifier<User>(integerLiteral: 1)
+        let result = try apiClient.requestUser(id: id).toBlocking(timeout: 100).single()
+        XCTAssertEqual(result.id, id)
+    }
+
+    func testRequestUserDetailNotFound() throws {
+        let apiClient = createApiClient()
+        let id = Identifier<User>(integerLiteral: -1) // Assume this is user id does not exist
+        XCTAssertThrowsError(_ = try apiClient.requestUser(id: id).toBlocking(timeout: 100).single(), "Expected ApiClientError.itemNotFound") { error in
+            guard case ApiClientError.itemNotFound = error else {
+                XCTFail("Expected ApiClientError.itemNotFound, found: \(error.localizedDescription)")
+                return
+            }
+        }
+    }
+    
     func testRequestCommentList() throws {
         let apiClient = createApiClient()
         let id = Identifier<Post>(integerLiteral: 1)

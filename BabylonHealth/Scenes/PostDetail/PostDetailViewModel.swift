@@ -51,9 +51,10 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
         
         let requestingUserList = ActivityTracker()
         
-        apiClient.requestUserList()
+        apiClient.requestUser(id: post.userID)
             .debug("requestUserList", trimOutput: true)
             .trackActivity(requestingUserList)
+            .map { [$0] }
             .subscribe(storage.storeUsers(onError: nil))
             .disposed(by: disposeBag)
         
