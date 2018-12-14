@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CommentsResponse = SafelyDecodableArray<Comment>
+
 typealias Comments = [Comment]
 
 struct Comment: Codable, Identifiable, Equatable, Hashable {

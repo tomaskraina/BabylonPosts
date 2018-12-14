@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias UsersResponse = SafelyDecodableArray<User>
+
 typealias Users = [User]
 
 struct User: Codable, Identifiable, Equatable, Hashable {

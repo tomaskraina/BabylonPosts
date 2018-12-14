@@ -57,9 +57,12 @@
 		9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */; };
 		9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */; };
 		9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */; };
+		9CC23ADF21C4125600433AAD /* SafelyDecodableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */; };
+		9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */; };
 		9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */; };
 		9CC8019121BF0C6D008511CF /* CaptionValueLabelPairView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CC8019021BF0C6D008511CF /* CaptionValueLabelPairView.xib */; };
 		9CC8019321BF0E35008511CF /* UIFont+constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8019221BF0E35008511CF /* UIFont+constants.swift */; };
+		9CCAA99221C3CD9600D450ED /* DecodableResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCAA99121C3CD9600D450ED /* DecodableResult.swift */; };
 		9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0F75221B5762700C0F057 /* PostObject.swift */; };
 		9CE0F75721B5764800C0F057 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75421B5764800C0F057 /* Realm.framework */; };
 		9CE0F75821B5764800C0F057 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE0F75521B5764800C0F057 /* RxRealm.framework */; };
@@ -138,9 +141,12 @@
 		9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientIntegrationTests.swift; sourceTree = "<group>"; };
+		9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArray.swift; sourceTree = "<group>"; };
+		9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArrayTests.swift; sourceTree = "<group>"; };
 		9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionValueLabelPairView.swift; sourceTree = "<group>"; };
 		9CC8019021BF0C6D008511CF /* CaptionValueLabelPairView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptionValueLabelPairView.xib; sourceTree = "<group>"; };
 		9CC8019221BF0E35008511CF /* UIFont+constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+constants.swift"; sourceTree = "<group>"; };
+		9CCAA99121C3CD9600D450ED /* DecodableResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableResult.swift; sourceTree = "<group>"; };
 		9CE0F75221B5762700C0F057 /* PostObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostObject.swift; sourceTree = "<group>"; };
 		9CE0F75421B5764800C0F057 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9CE0F75521B5764800C0F057 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
@@ -306,6 +312,7 @@
 				9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */,
 				9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */,
 				9C4DE3B421886C2D00EBD16F /* PostDecodableTests.swift */,
+				9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */,
 				9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */,
 				9C4A26412189B498009316C1 /* helpers.swift */,
 				9C4DE37D218860A900EBD16F /* Info.plist */,
@@ -328,7 +335,9 @@
 		9C4DE39B218867B000EBD16F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */,
 				9C4DE398218867AB00EBD16F /* ApiClient.swift */,
+				9CCAA99121C3CD9600D450ED /* DecodableResult.swift */,
 				9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */,
 				9C4A268D21919BF4009316C1 /* MockApiClient.swift */,
 				9C4DE397218867AA00EBD16F /* Identifier.swift */,
@@ -535,6 +544,7 @@
 				9C4A267E218B2716009316C1 /* UIView+nibLoading.swift in Sources */,
 				9C4A2672218AF555009316C1 /* Storyboard Segues.swift in Sources */,
 				9C4A266B218AF387009316C1 /* MainFlowCoordinator.swift in Sources */,
+				9CCAA99221C3CD9600D450ED /* DecodableResult.swift in Sources */,
 				9C4A2678218AFDEC009316C1 /* PostTableViewCell.swift in Sources */,
 				9C4A2670218AF555009316C1 /* Assets.swift in Sources */,
 				9CE0F75C21B57CFF00C0F057 /* UserObject.swift in Sources */,
@@ -542,6 +552,7 @@
 				9C4A264C218AEEE9009316C1 /* PostListViewController.swift in Sources */,
 				9CE0F75321B5762700C0F057 /* PostObject.swift in Sources */,
 				9C08475A21BFC95D0085E0F0 /* RxActivityTracker.swift in Sources */,
+				9CC23ADF21C4125600433AAD /* SafelyDecodableArray.swift in Sources */,
 				9C4DE3912188654400EBD16F /* JSONPlaceholderEndpoint.swift in Sources */,
 				9C4A2682218C4D9E009316C1 /* UIAlertController+makeAlert.swift in Sources */,
 				9C4DE367218860A800EBD16F /* AppDelegate.swift in Sources */,
@@ -566,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */,
 				9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */,
 				9C4DE3B521886C2D00EBD16F /* PostDecodableTests.swift in Sources */,
 				9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */,

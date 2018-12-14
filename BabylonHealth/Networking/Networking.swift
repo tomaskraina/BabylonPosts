@@ -14,7 +14,7 @@ import RxSwift
 
 protocol NetworkingProvider {
     @discardableResult
-    func request<T: Codable>(endpoint: Endpoint) -> Observable<T>
+    func request<T: Decodable>(endpoint: Endpoint) -> Observable<T>
 }
 
 // MARK: - Networking
@@ -30,7 +30,7 @@ class Networking: NetworkingProvider {
     let manager: SessionManager
     
     @discardableResult
-    func request<T: Codable>(endpoint: Endpoint) -> Observable<T> {
+    func request<T: Decodable>(endpoint: Endpoint) -> Observable<T> {
         
         return Observable<T>.create { [manager] observer in
             let dataRequest = manager.request(endpoint, method: endpoint.method, parameters: endpoint.parameters)

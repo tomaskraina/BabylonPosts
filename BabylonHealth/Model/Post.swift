@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias PostsResponse = SafelyDecodableArray<Post>
+
 typealias Posts = [Post]
 
 struct Post: Codable, Identifiable, Equatable, Hashable {

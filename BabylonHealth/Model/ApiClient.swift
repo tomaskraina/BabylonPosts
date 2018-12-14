@@ -36,16 +36,18 @@ class JSONPlaceholderApiClient: ApiClient {
     func requestPostList() -> Observable<Posts> {
         let endpoint = JSONPlaceholderEndpoint.posts
         return networking.request(endpoint: endpoint)
+            .map { (response: PostsResponse) in Array(response) }
     }
     
     func requestUserList() -> Observable<Users> {
         let endpoint = JSONPlaceholderEndpoint.users
         return networking.request(endpoint: endpoint)
+            .map { (response: UsersResponse) in Array(response) }
     }
     
     func requestUser(id: Identifier<User>) -> Observable<User> {
         let endpoint = JSONPlaceholderEndpoint.user(id: id)
-        let users: Observable<Users> = networking.request(endpoint: endpoint)
+        let users: Observable<UsersResponse> = networking.request(endpoint: endpoint)
         
         return users.flatMap({ (users) -> Observable<User> in
             if let user = users.first(where: { $0.id == id }) {
@@ -59,5 +61,6 @@ class JSONPlaceholderApiClient: ApiClient {
     func requestComments(postId: Identifier<Post>) -> Observable<Comments> {
         let endpoint = JSONPlaceholderEndpoint.comments(postId: postId)
         return networking.request(endpoint: endpoint)
+            .map { (response: CommentsResponse) in Array(response) }
     }
 }
