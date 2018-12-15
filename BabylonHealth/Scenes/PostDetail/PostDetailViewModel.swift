@@ -98,29 +98,37 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     }
     
     var authorName: Driver<String> {
-        return user.map { $0.username }
+        let usernameDriver = user.map { $0.username }
             .startWith("")
-            .asDriver(onErrorJustReturn: "N/A")
+            .asDriver(onErrorJustReturn: "N/A")  // TODO: L10n
+        
+        return Driver.combineLatest(usernameDriver, isLoadingAuthorName, resultSelector: { (username, isLoading) in
+            return isLoading || !username.isEmpty ? username : "N/A" // TODO: L10n
+        })
     }
     
     var postDescription: Driver<String> {
         return post.asObservable().map { $0.body }
             .startWith("")
-            .asDriver(onErrorJustReturn: "N/A")
+            .asDriver(onErrorJustReturn: "N/A")  // TODO: L10n
     }
     
     var numberOfComment: Driver<String> {
-        return commentCount
+        
+        let commentCountDriver = commentCount
             .map(String.init)
-            .withLatestFrom(isLoadingNumberOfComments.asObservable(), resultSelector: { (count, isLoading) -> String in
-                if count == "0" && isLoading {
-                    return ""
-                } else {
-                    return count
-                }
-            })
             .startWith("")
-            .asDriver(onErrorJustReturn: "N/A")
+            .asDriver(onErrorJustReturn: "N/A")  // TODO: L10n
+        
+        return Driver.combineLatest(commentCountDriver, isLoadingNumberOfComments, resultSelector: { (count, isLoading) in
+            if count != "0" {
+                return count
+            } else if isLoading {
+                return ""
+            } else {
+                return "N/A"
+            }
+        })
     }
     
     let isLoadingAuthorName: Driver<Bool>
