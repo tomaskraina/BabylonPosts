@@ -57,6 +57,7 @@
 		9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */; };
 		9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */; };
 		9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */; };
+		9C67290021C52C080098B708 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C67290221C52C080098B708 /* Localizable.strings */; };
 		9CC23ADF21C4125600433AAD /* SafelyDecodableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */; };
 		9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */; };
 		9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */; };
@@ -141,6 +142,7 @@
 		9C4DE3B621886C7100EBD16F /* UserDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDecodableTests.swift; sourceTree = "<group>"; };
 		9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientIntegrationTests.swift; sourceTree = "<group>"; };
+		9C67290121C52C080098B708 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArray.swift; sourceTree = "<group>"; };
 		9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArrayTests.swift; sourceTree = "<group>"; };
 		9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionValueLabelPairView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				9C4DE39B218867B000EBD16F /* Model */,
 				9C4DE3892188654400EBD16F /* Networking */,
 				9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */,
+				9C67290221C52C080098B708 /* Localizable.strings */,
 			);
 			path = BabylonHealth;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				9C4A2652218AEF3B009316C1 /* PostList.storyboard in Resources */,
 				9C4A2679218AFDEC009316C1 /* PostTableViewCell.xib in Resources */,
 				9C4DE371218860A900EBD16F /* LaunchScreen.storyboard in Resources */,
+				9C67290021C52C080098B708 /* Localizable.strings in Resources */,
 				9C4DE36E218860A900EBD16F /* Assets.xcassets in Resources */,
 				9CC8019121BF0C6D008511CF /* CaptionValueLabelPairView.xib in Resources */,
 				9C4A2658218AEF83009316C1 /* PostDetail.storyboard in Resources */,
@@ -604,6 +608,14 @@
 				9C4DE370218860A900EBD16F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9C67290221C52C080098B708 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C67290121C52C080098B708 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

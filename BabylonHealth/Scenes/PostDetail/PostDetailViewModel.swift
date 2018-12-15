@@ -82,35 +82,35 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     }
     
     var authorNameCaption: Driver<String> {
-        return Driver.just("Author") // TODO: L10n
+        return Driver.just(NSLocalizedString("detail.author.caption", comment: "Detail"))
     }
     
     var postDescriptionCaption: Driver<String> {
-        return Driver.just("Body") // TODO: L10n
+        return Driver.just(NSLocalizedString("detail.body.caption", comment: "Detail"))
     }
     
     var numberOfCommentsCaption: Driver<String> {
-        return Driver.just("Number of comments") // TODO: L10n
+        return Driver.just(NSLocalizedString("detail.commentCount.caption", comment: "Detail"))
     }
     
     var title: Driver<String> {
-        return Driver.just("Post detail") // TODO: L10n
+        return Driver.just(NSLocalizedString("detail.title", comment: "Detail"))
     }
     
     var authorName: Driver<String> {
         let usernameDriver = user.map { $0.username }
             .startWith("")
-            .asDriver(onErrorJustReturn: "N/A")  // TODO: L10n
+            .asDriver(onErrorJustReturn: "")
         
         return Driver.combineLatest(usernameDriver, isLoadingAuthorName, resultSelector: { (username, isLoading) in
-            return isLoading || !username.isEmpty ? username : "N/A" // TODO: L10n
+            return isLoading || !username.isEmpty ? username : NSLocalizedString("detail.author.value.missing", comment: "Detail")
         })
     }
     
     var postDescription: Driver<String> {
         return post.asObservable().map { $0.body }
             .startWith("")
-            .asDriver(onErrorJustReturn: "N/A")  // TODO: L10n
+            .asDriver(onErrorJustReturn: NSLocalizedString("detail.body.value.missing", comment: "Detail"))
     }
     
     var numberOfComment: Driver<String> {
@@ -118,7 +118,7 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
         let commentCountDriver = commentCount
             .map(String.init)
             .startWith("")
-            .asDriver(onErrorJustReturn: "N/A")  // TODO: L10n
+            .asDriver(onErrorJustReturn: "")
         
         return Driver.combineLatest(commentCountDriver, isLoadingNumberOfComments, resultSelector: { (count, isLoading) in
             if count != "0" {
@@ -126,7 +126,7 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
             } else if isLoading {
                 return ""
             } else {
-                return "N/A"
+                return NSLocalizedString("detail.commentCount.value.missing", comment: "Detail")
             }
         })
     }

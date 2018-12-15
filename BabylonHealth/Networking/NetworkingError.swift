@@ -18,7 +18,7 @@ enum NetworkingError: LocalizedError {
             return error.localizedDescription
             
         case .notFound:
-            return "Requested item not found." // TODO: L10n
+            return NSLocalizedString("error.network.notFound.description", comment: "Error")
         }
     }
 }

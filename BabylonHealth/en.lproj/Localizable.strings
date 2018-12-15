@@ -1,0 +1,33 @@
+
+/* Detail */
+"detail.author.caption" = "Author";
+
+/* Detail */
+"detail.author.value.missing" = "N/A";
+
+/* Detail */
+"detail.body.caption" = "Body";
+
+/* Detail */
+"detail.body.value.missing" = "N/A";
+
+/* Detail */
+"detail.commentCount.caption" = "Number of comments";
+
+/* Detail */
+"detail.commentCount.value.missing" = "N/A";
+
+/* Detail */
+"detail.title" = "Post detail";
+
+/* Error */
+"error.cancel" = "Cancel";
+
+/* Error */
+"error.network.notFound.description" = "Requested item not found.";
+
+/* Error */
+"error.retry" = "Retry";
+
+/* Error */
+"error.title" = "Something went wrong";
