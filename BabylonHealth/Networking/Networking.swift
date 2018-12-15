@@ -14,7 +14,7 @@ import RxSwift
 
 protocol NetworkingProvider {
     @discardableResult
-    func request<T: Decodable>(endpoint: Endpoint) -> Observable<T>
+    func request<T: Decodable>(endpoint: Endpoint) -> Single<T>
 }
 
 // MARK: - Networking
@@ -30,20 +30,19 @@ class Networking: NetworkingProvider {
     let manager: SessionManager
     
     @discardableResult
-    func request<T: Decodable>(endpoint: Endpoint) -> Observable<T> {
+    func request<T: Decodable>(endpoint: Endpoint) -> Single<T> {
         
-        return Observable<T>.create { [manager] observer in
+        return Single<T>.create { [manager] handler in
             let dataRequest = manager.request(endpoint, method: endpoint.method, parameters: endpoint.parameters)
             dataRequest.responseDecodableObject { (dataResponse: DataResponse<T>) in
                 
                 switch dataResponse.result {
                 case .success(let value):
-                    observer.onNext(value)
-                    observer.onCompleted()
+                    handler(.success(value))
                     
                 case .failure(let error):
                     let networkingError = NetworkingError.init(error: error, httpUrlResponse: dataResponse.response)
-                    observer.onError(networkingError)
+                    handler(.error(networkingError))
                 }
                 
             }

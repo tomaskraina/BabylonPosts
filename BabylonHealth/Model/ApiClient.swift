@@ -12,10 +12,10 @@ import RxSwift
 // MARK: - Protocols
 
 protocol ApiClient {
-    func requestPostList() -> Observable<Posts>
-    func requestUserList() -> Observable<Users>
-    func requestUser(id: Identifier<User>) -> Observable<User>
-    func requestComments(postId: Identifier<Post>) -> Observable<Comments>
+    func requestPostList() -> Single<Posts>
+    func requestUserList() -> Single<Users>
+    func requestUser(id: Identifier<User>) -> Single<User>
+    func requestComments(postId: Identifier<Post>) -> Single<Comments>
 }
 
 enum ApiClientError: Error {
@@ -33,32 +33,32 @@ class JSONPlaceholderApiClient: ApiClient {
     
     let networking: NetworkingProvider
     
-    func requestPostList() -> Observable<Posts> {
+    func requestPostList() -> Single<Posts> {
         let endpoint = JSONPlaceholderEndpoint.posts
         return networking.request(endpoint: endpoint)
             .map { (response: PostsResponse) in Array(response) }
     }
     
-    func requestUserList() -> Observable<Users> {
+    func requestUserList() -> Single<Users> {
         let endpoint = JSONPlaceholderEndpoint.users
         return networking.request(endpoint: endpoint)
             .map { (response: UsersResponse) in Array(response) }
     }
     
-    func requestUser(id: Identifier<User>) -> Observable<User> {
+    func requestUser(id: Identifier<User>) -> Single<User> {
         let endpoint = JSONPlaceholderEndpoint.user(id: id)
-        let users: Observable<UsersResponse> = networking.request(endpoint: endpoint)
+        let users: Single<UsersResponse> = networking.request(endpoint: endpoint)
         
-        return users.flatMap({ (users) -> Observable<User> in
+        return users.flatMap({ (users) -> Single<User> in
             if let user = users.first(where: { $0.id == id }) {
-                return Observable.just(user)
+                return Single.just(user)
             } else {
-                return Observable.error(ApiClientError.itemNotFound)
+                return Single.error(ApiClientError.itemNotFound)
             }
         })
     }
     
-    func requestComments(postId: Identifier<Post>) -> Observable<Comments> {
+    func requestComments(postId: Identifier<Post>) -> Single<Comments> {
         let endpoint = JSONPlaceholderEndpoint.comments(postId: postId)
         return networking.request(endpoint: endpoint)
             .map { (response: CommentsResponse) in Array(response) }

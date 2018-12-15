@@ -49,6 +49,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
         reloadAction = Action<Void, Void> { [apiClient, storage] _ -> Observable<Void> in
             Observable.create({ (observer) -> Disposable in
                 return apiClient.requestPostList()
+                    .asObservable()
                     .do(onError: { observer.onError($0) }, onCompleted: { observer.onCompleted() })
                     .subscribe(storage.storePosts { observer.onError($0) })
             })

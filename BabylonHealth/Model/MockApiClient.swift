@@ -13,9 +13,9 @@ class MockApiClient: ApiClient {
     
     private let defaultDelay: TimeInterval = 2.0
     
-    func requestPostList() -> Observable<Posts> {
+    func requestPostList() -> Single<Posts> {
         
-        return Observable.create({ (observer) -> Disposable in
+        return Single.create { handler in
             let jsonData = """
                 [
                     {
@@ -28,15 +28,14 @@ class MockApiClient: ApiClient {
             """.data(using: .utf8)!
             
             let posts = try! JSONDecoder().decode(Posts.self, from: jsonData)
-            observer.onNext(posts)
-            observer.onCompleted()
+            handler(.success(posts))
             
             return Disposables.create()
-        }).delay(defaultDelay, scheduler: MainScheduler.asyncInstance)
+        }.delay(defaultDelay, scheduler: MainScheduler.asyncInstance)
     }
     
-    func requestUserList() -> Observable<Users> {
-        return Observable.create({ (observer) -> Disposable in
+    func requestUserList() -> Single<Users> {
+        return Single.create { handler in
             let jsonData = """
                 [
                     {
@@ -66,15 +65,14 @@ class MockApiClient: ApiClient {
             """.data(using: .utf8)!
             
             let decoded = try! JSONDecoder().decode(Users.self, from: jsonData)
-            observer.onNext(decoded)
-            observer.onCompleted()
+            handler(.success(decoded))
             
             return Disposables.create()
-        }).delay(defaultDelay, scheduler: MainScheduler.asyncInstance)
+        }.delay(defaultDelay, scheduler: MainScheduler.asyncInstance)
     }
     
-    func requestUser(id: Identifier<User>) -> Observable<User> {
-        return Observable.create({ (observer) -> Disposable in
+    func requestUser(id: Identifier<User>) -> Single<User> {
+        return Single.create { observer in
             let jsonData = """
                 [
                     {
@@ -105,15 +103,14 @@ class MockApiClient: ApiClient {
             """.data(using: .utf8)!
             
             let decoded = try! JSONDecoder().decode(User.self, from: jsonData)
-            observer.onNext(decoded)
-            observer.onCompleted()
+            observer(.success(decoded))
             
             return Disposables.create()
-        }).delay(defaultDelay + 0.5, scheduler: MainScheduler.asyncInstance)
+        }.delay(defaultDelay + 0.5, scheduler: MainScheduler.asyncInstance)
     }
     
-    func requestComments(postId: Identifier<Post>) -> Observable<Comments> {
-        return Observable.create({ (observer) -> Disposable in
+    func requestComments(postId: Identifier<Post>) -> Single<Comments> {
+        return Single.create { handler in
             let jsonData = """
                 [
                     {
@@ -127,10 +124,10 @@ class MockApiClient: ApiClient {
             """.data(using: .utf8)!
             
             let decoded = try! JSONDecoder().decode(Comments.self, from: jsonData)
-            observer.onNext(decoded)
-            observer.onCompleted()
+            handler(.success(decoded))
             
             return Disposables.create()
-        }).delay(defaultDelay + 0.5, scheduler: MainScheduler.asyncInstance)
+            
+        }.delay(defaultDelay + 0.5, scheduler: MainScheduler.asyncInstance)
     }
 }
