@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tom Kraina. All rights reserved.
 //
 
+// TODO: Reimplement Networking without using Alamofire
 import Alamofire
 import CodableAlamofire
 import RxSwift
@@ -32,6 +33,7 @@ class Networking: NetworkingProvider {
     @discardableResult
     func request<T: Decodable>(endpoint: Endpoint) -> Single<T> {
         
+        // TODO: Configure retry logic (e.g. max X times every Y seconds if request times out)
         return Single<T>.create { [manager] handler in
             let dataRequest = manager.request(endpoint, method: endpoint.method, parameters: endpoint.parameters)
             dataRequest.responseDecodableObject { (dataResponse: DataResponse<T>) in
