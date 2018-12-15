@@ -89,6 +89,15 @@ class PostListViewController: UITableViewController {
         }).disposed(by: disposeBag)
         
         viewModel?.outputs.isRefreshing
+            .do(onNext: { [tableView] (newValue) in
+                // When spinner is triggered programmatically right after app launch
+                // we have to scroll the table view in order to make it visible
+                // TODO: Consider using LoadingViewControllers instead as described here https://talk.objc.io/episodes/S01E3-loading-view-controllers
+                guard newValue else { return }
+                guard let tableView = tableView else { return }
+                guard !tableView.refreshControl!.isRefreshing else { return }
+                tableView.setContentOffset(CGPoint(x: 0, y: -tableView.refreshControl!.frame.size.height), animated: true)
+            })
             .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
         
