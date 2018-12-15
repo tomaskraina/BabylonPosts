@@ -15,6 +15,8 @@ import RealmSwift
 import RxRealm
 import Action
 
+// TODO: Support pagination instead of requesting and displaying all posts at once
+
 // MARK: - Protocols
 
 protocol PostListViewModelInputs {
