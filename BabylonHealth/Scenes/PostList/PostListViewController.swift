@@ -35,18 +35,15 @@ class PostListViewController: UITableViewController {
         
         viewModel.inputs.reloadAction.execute(())
         
-        let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: nil, action: nil)
+        var deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: nil, action: nil)
+        deleteItem.rx.action = viewModel.inputs.deleteAction
         navigationItem.rightBarButtonItem = deleteItem
-        deleteItem.rx.tap.subscribe(onNext: { [weak viewModel] _ in
-            viewModel?.inputs.deleteData()
-        }).disposed(by: disposeBag)
     }
 
     // MARK: - IBAction
     
     @IBAction func pulledToRefresh() {
         viewModel.inputs.reloadAction.execute(())
-
     }
     
     // MARK: - Helpers
@@ -81,9 +78,7 @@ class PostListViewController: UITableViewController {
         
         viewModel?.outputs.onError
             .map({ [weak viewModel] error in
-            UIAlertController.makeAlert(networkError: error, retryHandler: {
-                viewModel?.inputs.reloadAction.execute(())
-            })
+            UIAlertController.makeAlert(networkError: error, retryAction: viewModel?.inputs.reloadAction)
         }).drive(onNext: { [weak self] (alert) in
             self?.present(alert, animated: true)
         }).disposed(by: disposeBag)

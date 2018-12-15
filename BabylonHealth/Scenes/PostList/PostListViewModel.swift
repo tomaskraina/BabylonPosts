@@ -19,7 +19,7 @@ import Action
 
 protocol PostListViewModelInputs {
     var reloadAction: Action<Void, Void> { get }
-    func deleteData()
+    var deleteAction: Action<Void, Void> { get }
 }
 
 protocol PostListViewModelOutputs {
@@ -55,6 +55,16 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
             })
         }
         
+        deleteAction = Action<Void, Void> { [storage] in
+            Observable.create({ (observer) in
+                storage.deleteAllData {
+                    observer.onError($0)
+                }
+                observer.onCompleted()
+                return Disposables.create()
+            })
+        }
+        
         tableContents = storage.posts()
             .asDriver(onErrorJustReturn: [])
             .map { [SectionModel(model: 0, items: $0)] }
@@ -64,18 +74,14 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     
     let reloadAction: Action<Void, Void>
     
-    func deleteData() {
-        storage.deleteAllData { [errorVariable] in
-            errorVariable.value = $0
-        }
-    }
+    let deleteAction: Action<Void, Void>
     
     // MARK: Outputs
     
     let tableContents: Driver<[SectionModel<Int, Post>]>
     
     var onError: Driver<Error> {
-        let actionErrors: Driver<Error> = reloadAction.errors
+        return Observable.merge(reloadAction.errors, deleteAction.errors)
             .asDriver(onErrorJustReturn: .notEnabled)
             .map {
                 if case let ActionError.underlyingError(error) = $0 {
@@ -86,13 +92,6 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
             }
             .filter { $0 != nil }
             .map { $0! }
-        
-        let otherErrors: Driver<Error> = errorVariable
-            .asDriver()
-            .filter { $0 != nil }
-            .map { $0! }
-        
-        return Driver.merge(actionErrors, otherErrors)
     }
     
     var isRefreshing: Driver<Bool> {
@@ -113,8 +112,6 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     private let apiClient: ApiClient
     
     private let storage: PersistentStorage
-    
-    private let errorVariable = Variable<Error?>(nil)
 }
 
 // MARK: - PostListViewModel+PostListViewModelling
