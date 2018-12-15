@@ -76,6 +76,7 @@ class PostListViewController: UITableViewController {
                 self.delegate?.postList(viewController: self, didSelect: $0) }
             ).disposed(by: disposeBag)
         
+        // TODO: Make an Action to show the alert and bind it to the viewModel.outputs.onError
         viewModel?.outputs.onError
             .map({ [weak viewModel] error in
             UIAlertController.makeAlert(networkError: error, retryAction: viewModel?.inputs.reloadAction)
