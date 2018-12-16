@@ -53,15 +53,13 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
         requestUserAction = Action<Identifier<User>, Void> { [usersProvider] (userId: Identifier<User>) in
             usersProvider.requestUser(id: userId)
                 .debug("requestUserId: \(userId.rawValue)", trimOutput: true)
-                .asObservable()
-                .map{_ in Void()}
+                .andThen(Observable.empty())
         }
         
         requestCommentsAction = Action<Identifier<Post>, Void> { [commentsProvider] (postId) in
             commentsProvider.requestComments(postId: postId)
                 .debug("requestComments postId: \(postId.rawValue)", trimOutput: true)
-                .asObservable()
-                .map{_ in Void()}
+                .andThen(Observable.empty())
         }
         
         user = usersProvider.user(id: post.userID)

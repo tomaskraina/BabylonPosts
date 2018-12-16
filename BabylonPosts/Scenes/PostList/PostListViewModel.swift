@@ -49,8 +49,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
 
         reloadAction = Action<Void, Void> { [dataProvider] in
             dataProvider.posts.requestPosts()
-                .asObservable()
-                .map{_ in Void()}
+                .andThen(Observable.empty())
         }
         
         deleteAction = Action<Void, Void> { [dataProvider] in
