@@ -30,7 +30,7 @@ struct MockDataProvider: HasDataProvider, DataProviderType, UsersProviderType, P
     
     var onDeleteAllData: (() -> Void)?
     
-    func deleteAllData() -> Observable<Void> {
+    func deleteAllData() -> Completable {
         onDeleteAllData?()
         return .empty()
     }

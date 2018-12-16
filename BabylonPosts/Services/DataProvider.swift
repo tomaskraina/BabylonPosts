@@ -35,12 +35,12 @@ extension DataProvider: DataProviderType {
         return self
     }
     
-    func deleteAllData() -> Observable<Void> {
-        return Observable.create({ [storage] (observer) in
+    func deleteAllData() -> Completable {
+        return Completable.create(subscribe: { [storage] (handler) in
             storage.deleteAllData {
-                observer.onError($0)
+                handler(.error($0))
             }
-            observer.onCompleted()
+            handler(.completed)
             return Disposables.create()
         })
     }

@@ -51,6 +51,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
         
         deleteAction = Action<Void, Void> { [dataProvider] in
             dataProvider.deleteAllData()
+                .andThen(Observable.empty())
         }
         
         tableContents = dataProvider.posts.allPosts()

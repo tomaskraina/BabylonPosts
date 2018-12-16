@@ -28,5 +28,5 @@ protocol DataProviderType: HasUsersProvider, HasCommentsProvider, HasPostsProvid
     var posts: PostsProviderType { get }
     var users: UsersProviderType { get }
     var comments: CommentsProviderType { get }
-    func deleteAllData() -> Observable<Void>
+    func deleteAllData() -> Completable
 }
