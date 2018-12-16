@@ -21,3 +21,11 @@ protocol HasPersistenceStorage {
 protocol HasDataProvider {
     var dataProvider: DataProvidering { get }
 }
+
+protocol HasUsersProvider {
+    var users: UsersProvider { get }
+}
+
+protocol HasCommentsProvider {
+    var comments: CommentsProvider { get }
+}

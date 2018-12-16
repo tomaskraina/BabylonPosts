@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         struct AppDependencies: MainFlowCoordinator.Dependencies {
+            
             var storage: PersistentStorage {
                 return RealmPersistantStorage()
             }
@@ -38,6 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             var dataProvider: DataProvidering {
                 return DataProvider(apiClient: apiClient, storage: storage)
+            }
+            
+            var comments: CommentsProvider {
+                return dataProvider.comments
+            }
+            
+            var users: UsersProvider {
+                return dataProvider.users
             }
             
             let sharedNetworking: NetworkingProvider = {

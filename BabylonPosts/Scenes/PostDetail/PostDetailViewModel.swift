@@ -11,6 +11,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Action
 
 
 // MARK: - Protocols
@@ -41,44 +42,44 @@ protocol PostDetailViewModelling {
 
 class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs {
     
-    typealias Dependencies = HasApiClient & HasPersistenceStorage
+    typealias Dependencies = HasUsersProvider & HasCommentsProvider
     
     init(post: Post, dependencies: Dependencies) {
-        self.apiClient = dependencies.apiClient
-        self.storage = dependencies.storage
+        let usersProvider = dependencies.users
+        let commentsProvider = dependencies.comments
         
         self.post = Variable<Post>(post)
         
-        let requestingUserList = ActivityTracker()
+        requestUserAction = Action<Identifier<User>, Void> { [usersProvider] (userId: Identifier<User>) in
+            usersProvider.requestUser(id: userId)
+                .debug("requestUserId: \(userId.rawValue)", trimOutput: true)
+                .asObservable()
+                .map{_ in Void()}
+        }
         
-        apiClient.requestUser(id: post.userID)
-            .debug("requestUserList", trimOutput: true)
-            .trackActivity(requestingUserList)
-            .map { [$0] }
-            .subscribe(storage.storeUsers(onError: nil))
-            .disposed(by: disposeBag)
+        requestCommentsAction = Action<Identifier<Post>, Void> { [commentsProvider] (postId) in
+            commentsProvider.requestComments(postId: postId)
+                .debug("requestComments postId: \(postId.rawValue)", trimOutput: true)
+                .asObservable()
+                .map{_ in Void()}
+        }
         
-        let requestingComments = ActivityTracker()
-        
-        apiClient.requestComments(postId: post.id)
-            .debug("requestComments", trimOutput: true)
-            .trackActivity(requestingComments)
-            .subscribe(storage.storeComments(onError: nil))
-            .disposed(by: disposeBag)
-        
-        user = storage.user(id: post.userID)
-            .debug("storage.user", trimOutput: true)
+        user = usersProvider.user(id: post.userID)
         
         isLoadingAuthorName = Observable
-            .merge(requestingUserList.asObservable(), user.map { _ in false } )
+            .merge(requestUserAction.executing, user.map { _ in false } )
             .asDriver(onErrorJustReturn: false)
         
-        commentCount = storage.commentCount(for: post.id)
+        commentCount = commentsProvider.commentCount(postId: post.id)
             .debug("storage.commentCount", trimOutput: true)
         
         isLoadingNumberOfComments = Observable
-            .merge(requestingComments.asObservable(), commentCount.map { $0 == 0 } )
+            .merge(requestCommentsAction.executing, commentCount.map { $0 == 0 } )
             .asDriver(onErrorJustReturn: false)
+        
+        // Fire requests
+        requestUserAction.execute(post.userID)
+        requestCommentsAction.execute(post.id)
     }
     
     var authorNameCaption: Driver<String> {
@@ -142,18 +143,15 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     
     // MARK: - Privates
     
-    private let apiClient: ApiClient
+    private let requestUserAction: Action<Identifier<User>, Void>
     
-    private let storage: PersistentStorage
+    private let requestCommentsAction: Action<Identifier<Post>, Void>
     
     private let post: Variable<Post>
     
     private let user: Observable<User>
     
     private let commentCount: Observable<Int>
-    
-    private let disposeBag = DisposeBag()
-    
 }
 
 // MARK: - PostListViewModel+PostDetailViewModelling
