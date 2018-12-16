@@ -102,8 +102,8 @@ class MockApiClient: ApiClient {
 
             """.data(using: .utf8)!
             
-            let decoded = try! JSONDecoder().decode(User.self, from: jsonData)
-            observer(.success(decoded))
+            let decoded = try! JSONDecoder().decode(Users.self, from: jsonData)
+            observer(.success(decoded.first!))
             
             return Disposables.create()
         }.delay(defaultDelay + 0.5, scheduler: MainScheduler.asyncInstance)

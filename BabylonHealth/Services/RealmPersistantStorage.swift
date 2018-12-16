@@ -11,21 +11,6 @@ import RxSwift
 import RxRealm
 import RealmSwift
 
-
-protocol PersistentStorage {
-    func posts() -> Observable<Posts>
-    func storePosts(onError: ((LocalizedError) -> Void)?) -> AnyObserver<Posts>
-    
-    func user(id: Identifier<User>) -> Observable<User>
-    func storeUsers(onError: ((LocalizedError) -> Void)?) -> RxSwift.AnyObserver<Users>
-    
-    func comments(for postId: Identifier<Post>) -> Observable<Comments>
-    func commentCount(for postId: Identifier<Post>) -> Observable<Int>
-    func storeComments(onError: ((LocalizedError) -> Void)?) -> RxSwift.AnyObserver<Comments>
-    
-    func deleteAllData(onError: ((LocalizedError) -> Void)?)
-}
-
 class RealmPersistantStorage: PersistentStorage {
 
     enum Error: LocalizedError {
