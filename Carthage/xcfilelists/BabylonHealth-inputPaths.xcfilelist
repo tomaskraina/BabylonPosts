@@ -1,3 +1,4 @@
+$(SRCROOT)/Carthage/Build/iOS/Action.framework
 $(SRCROOT)/Carthage/Build/iOS/Alamofire.framework
 $(SRCROOT)/Carthage/Build/iOS/CodableAlamofire.framework
 $(SRCROOT)/Carthage/Build/iOS/Differentiator.framework
@@ -7,4 +8,3 @@ $(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework
 $(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework
 $(SRCROOT)/Carthage/Build/iOS/RxRealm.framework
 $(SRCROOT)/Carthage/Build/iOS/RxSwift.framework
-$(SRCROOT)/Carthage/Build/iOS/Action.framework
