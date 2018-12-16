@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import BabylonHealth
+@testable import BabylonPosts
 
 class CommentDecodableTests: XCTestCase {
 

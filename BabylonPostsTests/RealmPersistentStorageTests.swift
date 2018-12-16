@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import BabylonHealth
+@testable import BabylonPosts
 import RealmSwift
 import RxSwift
 
@@ -33,8 +33,8 @@ class RealmPersistentStorageTests: XCTestCase {
         
         // Given
         let posts: Posts = try JSON(named: "posts")
-        let storage: PersistentStorage = RealmPersistantStorage()
-        let storage2: PersistentStorage = RealmPersistantStorage()
+        let storage: StorageType = RealmPersistantStorage()
+        let storage2: StorageType = RealmPersistantStorage()
         
         // When
         storage.storePosts(onError: nil).onNext(posts)
@@ -52,8 +52,8 @@ class RealmPersistentStorageTests: XCTestCase {
         
         // Given
         let users: Users = try JSON(named: "users")
-        let storage: PersistentStorage = RealmPersistantStorage()
-        let storage2: PersistentStorage = RealmPersistantStorage()
+        let storage: StorageType = RealmPersistantStorage()
+        let storage2: StorageType = RealmPersistantStorage()
         
         // When
         storage.storeUsers(onError: nil).onNext(users)
@@ -71,8 +71,8 @@ class RealmPersistentStorageTests: XCTestCase {
         
         // Given
         let comments: Comments = try JSON(named: "comments")
-        let storage: PersistentStorage = RealmPersistantStorage()
-        let storage2: PersistentStorage = RealmPersistantStorage()
+        let storage: StorageType = RealmPersistantStorage()
+        let storage2: StorageType = RealmPersistantStorage()
         
         // When
         storage.storeComments(onError: nil).onNext(comments)
@@ -92,7 +92,7 @@ class RealmPersistentStorageTests: XCTestCase {
         let recordedError = Variable<Error?>(nil)
         let comments: Comments = try JSON(named: "comments")
         let config = Realm.Configuration.init(fileURL: URL(fileURLWithPath: "/invalidPath"))
-        let storage: PersistentStorage = RealmPersistantStorage(configuration: config)
+        let storage: StorageType = RealmPersistantStorage(configuration: config)
         
         // When
         storage.storeComments(onError: { recordedError.value = $0 }).onNext(comments)

@@ -7,12 +7,12 @@
 //
 
 import XCTest
-@testable import BabylonHealth
+@testable import BabylonPosts
 import RxSwift
 import RxBlocking
 import Alamofire
 
-private func createApiClient() -> ApiClient {
+private func createApiClient() -> ApiClientType {
     // Use ephemeral config in order to avoid url cache
     let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)
     let networking = Networking(manager: sessionManager)

@@ -112,12 +112,12 @@
 		9C4A267F218B281A009316C1 /* UIView+fullSizeConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fullSizeConstraints.swift"; sourceTree = "<group>"; };
 		9C4A2681218C4D9E009316C1 /* UIAlertController+makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+makeAlert.swift"; sourceTree = "<group>"; };
 		9C4A268D21919BF4009316C1 /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
-		9C4DE363218860A800EBD16F /* BabylonHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C4DE363218860A800EBD16F /* BabylonPosts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonPosts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DE366218860A800EBD16F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C4DE36D218860A900EBD16F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C4DE370218860A900EBD16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C4DE372218860A900EBD16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C4DE377218860A900EBD16F /* BabylonHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C4DE377218860A900EBD16F /* BabylonPostsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonPostsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DE37D218860A900EBD16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C4DE386218862A600EBD16F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9C4DE387218862A600EBD16F /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -274,8 +274,8 @@
 				9C4DE388218862A600EBD16F /* README.md */,
 				9C4DE387218862A600EBD16F /* Cartfile */,
 				9C4DE386218862A600EBD16F /* LICENSE */,
-				9C4DE365218860A800EBD16F /* BabylonHealth */,
-				9C4DE37A218860A900EBD16F /* BabylonHealthTests */,
+				9C4DE365218860A800EBD16F /* BabylonPosts */,
+				9C4DE37A218860A900EBD16F /* BabylonPostsTests */,
 				9C4DE364218860A800EBD16F /* Products */,
 				9C4DE3A221886A5700EBD16F /* Frameworks */,
 			);
@@ -284,13 +284,13 @@
 		9C4DE364218860A800EBD16F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C4DE363218860A800EBD16F /* BabylonHealth.app */,
-				9C4DE377218860A900EBD16F /* BabylonHealthTests.xctest */,
+				9C4DE363218860A800EBD16F /* BabylonPosts.app */,
+				9C4DE377218860A900EBD16F /* BabylonPostsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9C4DE365218860A800EBD16F /* BabylonHealth */ = {
+		9C4DE365218860A800EBD16F /* BabylonPosts */ = {
 			isa = PBXGroup;
 			children = (
 				9C4DE372218860A900EBD16F /* Info.plist */,
@@ -308,10 +308,10 @@
 				9C67290521C65C4B0098B708 /* Services */,
 				9C4A267A218AFDF1009316C1 /* Views */,
 			);
-			path = BabylonHealth;
+			path = BabylonPosts;
 			sourceTree = "<group>";
 		};
-		9C4DE37A218860A900EBD16F /* BabylonHealthTests */ = {
+		9C4DE37A218860A900EBD16F /* BabylonPostsTests */ = {
 			isa = PBXGroup;
 			children = (
 				9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */,
@@ -324,7 +324,7 @@
 				9C4DE37D218860A900EBD16F /* Info.plist */,
 				9C4A26402189B472009316C1 /* Sample Responses */,
 			);
-			path = BabylonHealthTests;
+			path = BabylonPostsTests;
 			sourceTree = "<group>";
 		};
 		9C4DE3892188654400EBD16F /* Networking */ = {
@@ -411,9 +411,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9C4DE362218860A800EBD16F /* BabylonHealth */ = {
+		9C4DE362218860A800EBD16F /* BabylonPosts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C4DE380218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonHealth" */;
+			buildConfigurationList = 9C4DE380218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonPosts" */;
 			buildPhases = (
 				9C4DE35F218860A800EBD16F /* Sources */,
 				9C4DE360218860A800EBD16F /* Frameworks */,
@@ -424,14 +424,14 @@
 			);
 			dependencies = (
 			);
-			name = BabylonHealth;
+			name = BabylonPosts;
 			productName = BabylonHealth;
-			productReference = 9C4DE363218860A800EBD16F /* BabylonHealth.app */;
+			productReference = 9C4DE363218860A800EBD16F /* BabylonPosts.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9C4DE376218860A900EBD16F /* BabylonHealthTests */ = {
+		9C4DE376218860A900EBD16F /* BabylonPostsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C4DE383218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonHealthTests" */;
+			buildConfigurationList = 9C4DE383218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonPostsTests" */;
 			buildPhases = (
 				9C4DE373218860A900EBD16F /* Sources */,
 				9C4DE374218860A900EBD16F /* Frameworks */,
@@ -443,9 +443,9 @@
 			dependencies = (
 				9C4DE379218860A900EBD16F /* PBXTargetDependency */,
 			);
-			name = BabylonHealthTests;
+			name = BabylonPostsTests;
 			productName = BabylonHealthTests;
-			productReference = 9C4DE377218860A900EBD16F /* BabylonHealthTests.xctest */;
+			productReference = 9C4DE377218860A900EBD16F /* BabylonPostsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -480,8 +480,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9C4DE362218860A800EBD16F /* BabylonHealth */,
-				9C4DE376218860A900EBD16F /* BabylonHealthTests */,
+				9C4DE362218860A800EBD16F /* BabylonPosts */,
+				9C4DE376218860A900EBD16F /* BabylonPostsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -624,7 +624,7 @@
 /* Begin PBXTargetDependency section */
 		9C4DE379218860A900EBD16F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9C4DE362218860A800EBD16F /* BabylonHealth */;
+			target = 9C4DE362218860A800EBD16F /* BabylonPosts */;
 			targetProxy = 9C4DE378218860A900EBD16F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -775,12 +775,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = BabylonHealth/Info.plist;
+				INFOPLIST_FILE = BabylonPosts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonPosts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -798,12 +798,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = BabylonHealth/Info.plist;
+				INFOPLIST_FILE = BabylonPosts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonPosts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -822,18 +822,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = BabylonHealthTests/Info.plist;
+				INFOPLIST_FILE = BabylonPostsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonHealthTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonPostsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabylonHealth.app/BabylonHealth";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabylonPosts.app/BabylonPosts";
 			};
 			name = Debug;
 		};
@@ -848,18 +848,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = BabylonHealthTests/Info.plist;
+				INFOPLIST_FILE = BabylonPostsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonHealthTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tomkraina.BabylonPostsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabylonHealth.app/BabylonHealth";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabylonPosts.app/BabylonPosts";
 			};
 			name = Release;
 		};
@@ -875,7 +875,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C4DE380218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonHealth" */ = {
+		9C4DE380218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonPosts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C4DE381218860A900EBD16F /* Debug */,
@@ -884,7 +884,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C4DE383218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonHealthTests" */ = {
+		9C4DE383218860A900EBD16F /* Build configuration list for PBXNativeTarget "BabylonPostsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C4DE384218860A900EBD16F /* Debug */,
