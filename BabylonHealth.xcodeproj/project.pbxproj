@@ -63,6 +63,8 @@
 		9C67291121C6C7090098B708 /* DataProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291021C6C7090098B708 /* DataProviderType.swift */; };
 		9C67291321C6C8520098B708 /* NetworkingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291221C6C8520098B708 /* NetworkingType.swift */; };
 		9C67291521C6C8810098B708 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291421C6C8810098B708 /* Endpoint.swift */; };
+		9C67291721C6CBB00098B708 /* PostListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291621C6CBB00098B708 /* PostListViewModelTests.swift */; };
+		9C67291921C700E90098B708 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291821C700E90098B708 /* MockDataProvider.swift */; };
 		9CC23ADF21C4125600433AAD /* SafelyDecodableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */; };
 		9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */; };
 		9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */; };
@@ -153,6 +155,8 @@
 		9C67291021C6C7090098B708 /* DataProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderType.swift; sourceTree = "<group>"; };
 		9C67291221C6C8520098B708 /* NetworkingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingType.swift; sourceTree = "<group>"; };
 		9C67291421C6C8810098B708 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		9C67291621C6CBB00098B708 /* PostListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelTests.swift; sourceTree = "<group>"; };
+		9C67291821C700E90098B708 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArray.swift; sourceTree = "<group>"; };
 		9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArrayTests.swift; sourceTree = "<group>"; };
 		9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionValueLabelPairView.swift; sourceTree = "<group>"; };
@@ -321,7 +325,9 @@
 		9C4DE37A218860A900EBD16F /* BabylonPostsTests */ = {
 			isa = PBXGroup;
 			children = (
+				9C67291A21C701290098B708 /* Mocks */,
 				9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */,
+				9C67291621C6CBB00098B708 /* PostListViewModelTests.swift */,
 				9C3BD21621A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift */,
 				9C4DE3B821886C7E00EBD16F /* CommentDecodableTests.swift */,
 				9C4DE3B421886C2D00EBD16F /* PostDecodableTests.swift */,
@@ -400,6 +406,14 @@
 				9C67290221C52C080098B708 /* Localizable.strings */,
 			);
 			path = "Localized Resources";
+			sourceTree = "<group>";
+		};
+		9C67291A21C701290098B708 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9C67291821C700E90098B708 /* MockDataProvider.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		9CE0F75A21B57B2900C0F057 /* Realm Objects */ = {
@@ -617,12 +631,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C67291721C6CBB00098B708 /* PostListViewModelTests.swift in Sources */,
 				9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */,
 				9C4DE3B721886C7100EBD16F /* UserDecodableTests.swift in Sources */,
 				9C4DE3B521886C2D00EBD16F /* PostDecodableTests.swift in Sources */,
 				9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */,
 				9C4DE3B921886C7E00EBD16F /* CommentDecodableTests.swift in Sources */,
 				9C4A26422189B498009316C1 /* helpers.swift in Sources */,
+				9C67291921C700E90098B708 /* MockDataProvider.swift in Sources */,
 				9C3BD21721A1E0FB00C0DA17 /* RealmPersistentStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
