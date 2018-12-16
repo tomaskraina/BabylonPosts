@@ -17,3 +17,7 @@ protocol HasApiClient {
 protocol HasPersistenceStorage {
     var storage: PersistentStorage { get }
 }
+
+protocol HasDataProvider {
+    var dataProvider: DataProvidering { get }
+}

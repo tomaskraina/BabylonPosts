@@ -10,7 +10,7 @@ import UIKit
 
 class MainFlowCoordinator {
 
-    typealias Dependencies = HasApiClient & HasPersistenceStorage
+    typealias Dependencies = HasApiClient & HasPersistenceStorage & HasDataProvider
     
     let window: UIWindow
 

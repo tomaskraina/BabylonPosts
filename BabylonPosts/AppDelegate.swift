@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return JSONPlaceholderApiClient.init(networking: sharedNetworking)
             }
             
+            var dataProvider: DataProvidering {
+                return DataProvider(apiClient: apiClient, storage: storage)
+            }
+            
             let sharedNetworking: NetworkingProvider = {
                 // Use ephemeral config in order to avoid url cache
                 let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)

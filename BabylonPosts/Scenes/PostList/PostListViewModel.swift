@@ -42,32 +42,22 @@ protocol PostListViewModelling: AnyObject {
 
 class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
     
-    typealias Dependencies = HasApiClient & HasPersistenceStorage
+    typealias Dependencies = HasDataProvider
     
     init(dependencies: Dependencies) {
-        apiClient = dependencies.apiClient
-        storage = dependencies.storage
+        dataProvider = dependencies.dataProvider
 
-        reloadAction = Action<Void, Void> { [apiClient, storage] _ -> Observable<Void> in
-            Observable.create({ (observer) -> Disposable in
-                return apiClient.requestPostList()
-                    .asObservable()
-                    .do(onError: { observer.onError($0) }, onCompleted: { observer.onCompleted() })
-                    .subscribe(storage.storePosts { observer.onError($0) })
-            })
+        reloadAction = Action<Void, Void> { [dataProvider] in
+            dataProvider.posts.requestPosts()
+                .asObservable()
+                .map{_ in Void()}
         }
         
-        deleteAction = Action<Void, Void> { [storage] in
-            Observable.create({ (observer) in
-                storage.deleteAllData {
-                    observer.onError($0)
-                }
-                observer.onCompleted()
-                return Disposables.create()
-            })
+        deleteAction = Action<Void, Void> { [dataProvider] in
+            dataProvider.deleteAllData()
         }
         
-        tableContents = storage.posts()
+        tableContents = dataProvider.posts.allPosts()
             .asDriver(onErrorJustReturn: [])
             .map { [SectionModel(model: 0, items: $0)] }
     }
@@ -111,9 +101,7 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
 
     // MARK: - Privates
     
-    private let apiClient: ApiClient
-    
-    private let storage: PersistentStorage
+    private let dataProvider: DataProvidering
 }
 
 // MARK: - PostListViewModel+PostListViewModelling

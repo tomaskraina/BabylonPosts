@@ -59,6 +59,7 @@
 		9C67290021C52C080098B708 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C67290221C52C080098B708 /* Localizable.strings */; };
 		9C67290921C65D9A0098B708 /* JSONPlaceholderApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290821C65D9A0098B708 /* JSONPlaceholderApiClient.swift */; };
 		9C67290B21C65DE00098B708 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290A21C65DE00098B708 /* PersistentStorage.swift */; };
+		9C67290F21C661CF0098B708 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290E21C661CF0098B708 /* DataProvider.swift */; };
 		9CC23ADF21C4125600433AAD /* SafelyDecodableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */; };
 		9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */; };
 		9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */; };
@@ -145,6 +146,7 @@
 		9C67290121C52C080098B708 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C67290821C65D9A0098B708 /* JSONPlaceholderApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderApiClient.swift; sourceTree = "<group>"; };
 		9C67290A21C65DE00098B708 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		9C67290E21C661CF0098B708 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArray.swift; sourceTree = "<group>"; };
 		9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArrayTests.swift; sourceTree = "<group>"; };
 		9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionValueLabelPairView.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				9C4A268D21919BF4009316C1 /* MockApiClient.swift */,
 				9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */,
 				9C67290A21C65DE00098B708 /* PersistentStorage.swift */,
+				9C67290E21C661CF0098B708 /* DataProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				9C4A2650218AEF22009316C1 /* PostListViewModel.swift in Sources */,
 				9CE0F76421B97D2000C0F057 /* ItemUpdateable.swift in Sources */,
 				9C4A267C218B002E009316C1 /* PostTableViewCellModel.swift in Sources */,
+				9C67290F21C661CF0098B708 /* DataProvider.swift in Sources */,
 				9C4DE3922188654400EBD16F /* Networking.swift in Sources */,
 				9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */,
 				9C67290921C65D9A0098B708 /* JSONPlaceholderApiClient.swift in Sources */,
