@@ -16,6 +16,7 @@ import RxSwift
 protocol NetworkingProvider {
     @discardableResult
     func request<T: Decodable>(endpoint: Endpoint) -> Single<T>
+    var isLoading: Observable<Bool> { get }
 }
 
 // MARK: - Networking
@@ -29,6 +30,8 @@ class Networking: NetworkingProvider {
     }
     
     let manager: SessionManager
+    
+    let activityTracker = ActivityTracker()
     
     @discardableResult
     func request<T: Decodable>(endpoint: Endpoint) -> Single<T> {
@@ -54,6 +57,10 @@ class Networking: NetworkingProvider {
             return Disposables.create {
                 dataRequest.cancel()
             }
-        }
+        }.trackActivity(activityTracker).asSingle()
+    }
+    
+    var isLoading: Observable<Bool> {
+        return activityTracker.asObservable()
     }
 }
