@@ -1,5 +1,5 @@
 //
-//  PersistentStorage.swift
+//  StorageType.swift
 //  BabylonHealth
 //
 //  Created by Tom Kraina on 16/12/2018.
@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol PersistentStorage {
+protocol StorageType {
     func posts() -> Observable<Posts>
     func storePosts(onError: ((LocalizedError) -> Void)?) -> AnyObserver<Posts>
     

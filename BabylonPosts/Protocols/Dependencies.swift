@@ -11,21 +11,25 @@ import Foundation
 // Inspired by: http://merowing.info/2017/04/using-protocol-compositon-for-dependency-injection/
 
 protocol HasApiClient {
-    var apiClient: ApiClient { get }
+    var apiClient: ApiClientType { get }
 }
 
 protocol HasPersistenceStorage {
-    var storage: PersistentStorage { get }
+    var storage: StorageType { get }
 }
 
 protocol HasDataProvider {
-    var dataProvider: DataProvidering { get }
+    var dataProvider: DataProviderType { get }
+}
+
+protocol HasPostsProvider {
+    var posts: PostsProviderType { get }
 }
 
 protocol HasUsersProvider {
-    var users: UsersProvider { get }
+    var users: UsersProviderType { get }
 }
 
 protocol HasCommentsProvider {
-    var comments: CommentsProvider { get }
+    var comments: CommentsProviderType { get }
 }

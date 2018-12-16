@@ -1,5 +1,5 @@
 //
-//  ApiClient.swift
+//  ApiClientType.swift
 //  BabylonHealth
 //
 //  Created by Tom Kraina on 30/10/2018.
@@ -11,7 +11,7 @@ import RxSwift
 
 // MARK: - Protocols
 
-protocol ApiClient {
+protocol ApiClientType {
     func requestPostList() -> Single<Posts>
     func requestUserList() -> Single<Users>
     func requestUser(id: Identifier<User>) -> Single<User>

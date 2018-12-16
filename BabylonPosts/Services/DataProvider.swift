@@ -9,54 +9,29 @@
 import Foundation
 import RxSwift
 
-
-protocol PostsProvider {
-    func requestPosts() -> Completable
-    func allPosts() -> Observable<Posts>
-}
-
-protocol UsersProvider {
-    func requestUser(id: Identifier<User>) -> Completable
-    func user(id: Identifier<User>) -> Observable<User>
-}
-
-protocol CommentsProvider {
-    func requestComments(postId: Identifier<Post>) -> Completable
-    func commentCount(postId: Identifier<Post>) -> Observable<Int>
-}
-
-protocol DataProvidering: HasUsersProvider {
-    var posts: PostsProvider { get }
-    var users: UsersProvider { get }
-    var comments: CommentsProvider { get }
-    func deleteAllData() -> Observable<Void>
-}
-
-class DataProvider: DataProvidering, PostsProvider, UsersProvider, CommentsProvider {
-    let apiClient: ApiClient
-    let storage: PersistentStorage
+/// This class is orchestrating the data flow from api client to persistent storage
+class DataProvider {
     
-    init(apiClient: ApiClient, storage: PersistentStorage) {
+    let apiClient: ApiClientType
+    let storage: StorageType
+    
+    init(apiClient: ApiClientType, storage: StorageType) {
         self.apiClient = apiClient
         self.storage = storage
     }
-    
-    func allPosts() -> Observable<Posts> {
-        return storage.posts()
+}
+
+// MARK: - DataProviderType
+extension DataProvider: DataProviderType {
+    var posts: PostsProviderType {
+        return self
     }
     
-    func requestPosts() -> Completable {
-        return Completable.create(subscribe: { [apiClient, storage] handler in
-            return apiClient.requestPostList()
-                .asObservable() // Convert to Observable so we can subscribe to it with storage.storePosts
-                .do(onError: { handler(.error($0)) }, onCompleted: { handler(.completed)} )
-                .subscribe(storage.storePosts { handler(.error($0)) })
-        })
+    var users: UsersProviderType {
+        return self
     }
     
-    // MARK: - DataProvidering
-    
-    var posts: PostsProvider {
+    var comments: CommentsProviderType {
         return self
     }
     
@@ -69,13 +44,26 @@ class DataProvider: DataProvidering, PostsProvider, UsersProvider, CommentsProvi
             return Disposables.create()
         })
     }
-    
-    // MARK: - UsersProvidering
-    
-    var users: UsersProvider {
-        return self
+}
+
+// MARK: - PostsProviderType
+extension DataProvider: PostsProviderType {
+    func allPosts() -> Observable<Posts> {
+        return storage.posts()
     }
     
+    func requestPosts() -> Completable {
+        return Completable.create(subscribe: { [apiClient, storage] handler in
+            return apiClient.requestPostList()
+                .asObservable() // Convert to Observable so we can subscribe to it with storage.storePosts
+                .do(onError: { handler(.error($0)) }, onCompleted: { handler(.completed)} )
+                .subscribe(storage.storePosts { handler(.error($0)) })
+        })
+    }
+}
+    
+// MARK: - UsersProviderType
+extension DataProvider: UsersProviderType {
     func requestUser(id: Identifier<User>) -> Completable {
         return Completable.create { [apiClient, storage] (handler) in
             apiClient.requestUser(id: id)
@@ -89,13 +77,10 @@ class DataProvider: DataProvidering, PostsProvider, UsersProvider, CommentsProvi
     func user(id: Identifier<User>) -> Observable<User> {
         return storage.user(id: id)
     }
+}
     
-    // MARK: - CommentsProvidering
-    
-    var comments: CommentsProvider {
-        return self
-    }
-    
+// MARK: - CommentsProviderType
+extension DataProvider: CommentsProviderType {
     func requestComments(postId: Identifier<Post>) -> Completable {
         return Completable.create { [apiClient, storage] (handler) in
             apiClient.requestComments(postId: postId)
@@ -108,5 +93,4 @@ class DataProvider: DataProvidering, PostsProvider, UsersProvider, CommentsProvi
     func commentCount(postId: Identifier<Post>) -> Observable<Int> {
         return storage.commentCount(for: postId)
     }
-    
 }

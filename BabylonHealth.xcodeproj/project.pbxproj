@@ -42,7 +42,7 @@
 		9C4DE3922188654400EBD16F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38B2188654400EBD16F /* Networking.swift */; };
 		9C4DE3932188654400EBD16F /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE38C2188654400EBD16F /* NetworkingError.swift */; };
 		9C4DE399218867AB00EBD16F /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE397218867AA00EBD16F /* Identifier.swift */; };
-		9C4DE39A218867AB00EBD16F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE398218867AB00EBD16F /* ApiClient.swift */; };
+		9C4DE39A218867AB00EBD16F /* ApiClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE398218867AB00EBD16F /* ApiClientType.swift */; };
 		9C4DE39D2188683D00EBD16F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE39C2188683D00EBD16F /* Post.swift */; };
 		9C4DE39F2188687300EBD16F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE39E2188687300EBD16F /* User.swift */; };
 		9C4DE3A1218868B400EBD16F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3A0218868B400EBD16F /* Comment.swift */; };
@@ -58,8 +58,11 @@
 		9C4DE3BB2189A7CD00EBD16F /* ApiClientIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */; };
 		9C67290021C52C080098B708 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C67290221C52C080098B708 /* Localizable.strings */; };
 		9C67290921C65D9A0098B708 /* JSONPlaceholderApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290821C65D9A0098B708 /* JSONPlaceholderApiClient.swift */; };
-		9C67290B21C65DE00098B708 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290A21C65DE00098B708 /* PersistentStorage.swift */; };
+		9C67290B21C65DE00098B708 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290A21C65DE00098B708 /* StorageType.swift */; };
 		9C67290F21C661CF0098B708 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67290E21C661CF0098B708 /* DataProvider.swift */; };
+		9C67291121C6C7090098B708 /* DataProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291021C6C7090098B708 /* DataProviderType.swift */; };
+		9C67291321C6C8520098B708 /* NetworkingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291221C6C8520098B708 /* NetworkingType.swift */; };
+		9C67291521C6C8810098B708 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67291421C6C8810098B708 /* Endpoint.swift */; };
 		9CC23ADF21C4125600433AAD /* SafelyDecodableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */; };
 		9CC23AE121C4185200433AAD /* SafelyDecodableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */; };
 		9CC8018F21BF0C13008511CF /* CaptionValueLabelPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */; };
@@ -127,7 +130,7 @@
 		9C4DE38B2188654400EBD16F /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		9C4DE38C2188654400EBD16F /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		9C4DE397218867AA00EBD16F /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
-		9C4DE398218867AB00EBD16F /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		9C4DE398218867AB00EBD16F /* ApiClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientType.swift; sourceTree = "<group>"; };
 		9C4DE39C2188683D00EBD16F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9C4DE39E2188687300EBD16F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C4DE3A0218868B400EBD16F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -145,8 +148,11 @@
 		9C4DE3BA2189A7CD00EBD16F /* ApiClientIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientIntegrationTests.swift; sourceTree = "<group>"; };
 		9C67290121C52C080098B708 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9C67290821C65D9A0098B708 /* JSONPlaceholderApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderApiClient.swift; sourceTree = "<group>"; };
-		9C67290A21C65DE00098B708 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		9C67290A21C65DE00098B708 /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		9C67290E21C661CF0098B708 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		9C67291021C6C7090098B708 /* DataProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderType.swift; sourceTree = "<group>"; };
+		9C67291221C6C8520098B708 /* NetworkingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingType.swift; sourceTree = "<group>"; };
+		9C67291421C6C8810098B708 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		9CC23ADE21C4125600433AAD /* SafelyDecodableArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArray.swift; sourceTree = "<group>"; };
 		9CC23AE021C4185200433AAD /* SafelyDecodableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafelyDecodableArrayTests.swift; sourceTree = "<group>"; };
 		9CC8018E21BF0C13008511CF /* CaptionValueLabelPairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionValueLabelPairView.swift; sourceTree = "<group>"; };
@@ -331,7 +337,9 @@
 		9C4DE3892188654400EBD16F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9C67291421C6C8810098B708 /* Endpoint.swift */,
 				9C4DE38A2188654400EBD16F /* JSONPlaceholderEndpoint.swift */,
+				9C67291221C6C8520098B708 /* NetworkingType.swift */,
 				9C4DE38B2188654400EBD16F /* Networking.swift */,
 				9C4DE38C2188654400EBD16F /* NetworkingError.swift */,
 				9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */,
@@ -375,11 +383,12 @@
 		9C67290521C65C4B0098B708 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9C4DE398218867AB00EBD16F /* ApiClient.swift */,
+				9C4DE398218867AB00EBD16F /* ApiClientType.swift */,
 				9C67290821C65D9A0098B708 /* JSONPlaceholderApiClient.swift */,
 				9C4A268D21919BF4009316C1 /* MockApiClient.swift */,
+				9C67290A21C65DE00098B708 /* StorageType.swift */,
 				9CE0F75F21B841A300C0F057 /* RealmPersistantStorage.swift */,
-				9C67290A21C65DE00098B708 /* PersistentStorage.swift */,
+				9C67291021C6C7090098B708 /* DataProviderType.swift */,
 				9C67290E21C661CF0098B708 /* DataProvider.swift */,
 			);
 			path = Services;
@@ -568,7 +577,8 @@
 				9C4DE399218867AB00EBD16F /* Identifier.swift in Sources */,
 				9C4A267E218B2716009316C1 /* UIView+nibLoading.swift in Sources */,
 				9C4A2672218AF555009316C1 /* Storyboard Segues.swift in Sources */,
-				9C67290B21C65DE00098B708 /* PersistentStorage.swift in Sources */,
+				9C67290B21C65DE00098B708 /* StorageType.swift in Sources */,
+				9C67291321C6C8520098B708 /* NetworkingType.swift in Sources */,
 				9C4A266B218AF387009316C1 /* MainFlowCoordinator.swift in Sources */,
 				9CCAA99221C3CD9600D450ED /* DecodableResult.swift in Sources */,
 				9C4A2678218AFDEC009316C1 /* PostTableViewCell.swift in Sources */,
@@ -585,6 +595,7 @@
 				9CE0F76221B97AB500C0F057 /* PersistentObjectConvertible.swift in Sources */,
 				9C4A2650218AEF22009316C1 /* PostListViewModel.swift in Sources */,
 				9CE0F76421B97D2000C0F057 /* ItemUpdateable.swift in Sources */,
+				9C67291521C6C8810098B708 /* Endpoint.swift in Sources */,
 				9C4A267C218B002E009316C1 /* PostTableViewCellModel.swift in Sources */,
 				9C67290F21C661CF0098B708 /* DataProvider.swift in Sources */,
 				9C4DE3922188654400EBD16F /* Networking.swift in Sources */,
@@ -596,7 +607,8 @@
 				9CE0F75E21B57DB300C0F057 /* CommentObject.swift in Sources */,
 				9C4A2671218AF555009316C1 /* Storyboard Scenes.swift in Sources */,
 				9C4DE3932188654400EBD16F /* NetworkingError.swift in Sources */,
-				9C4DE39A218867AB00EBD16F /* ApiClient.swift in Sources */,
+				9C4DE39A218867AB00EBD16F /* ApiClientType.swift in Sources */,
+				9C67291121C6C7090098B708 /* DataProviderType.swift in Sources */,
 				9C4A2656218AEF7A009316C1 /* PostDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

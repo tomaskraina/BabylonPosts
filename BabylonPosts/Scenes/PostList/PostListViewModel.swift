@@ -10,9 +10,6 @@ import Foundation
 import RxSwift
 import RxDataSources
 import RxCocoa
-
-import RealmSwift
-import RxRealm
 import Action
 
 // TODO: Support pagination instead of requesting and displaying all posts at once
@@ -33,7 +30,7 @@ protocol PostListViewModelOutputs {
     var isRefreshing: Driver<Bool> { get }
 }
 
-protocol PostListViewModelling: AnyObject {
+protocol PostListViewModelType: AnyObject {
     var inputs: PostListViewModelInputs { get }
     var outputs: PostListViewModelOutputs { get }
 }
@@ -100,11 +97,11 @@ class PostListViewModel: PostListViewModelInputs, PostListViewModelOutputs {
 
     // MARK: - Privates
     
-    private let dataProvider: DataProvidering
+    private let dataProvider: DataProviderType
 }
 
-// MARK: - PostListViewModel+PostListViewModelling
-extension PostListViewModel: PostListViewModelling {
+// MARK: - PostListViewModel+PostListViewModelType
+extension PostListViewModel: PostListViewModelType {
     var inputs: PostListViewModelInputs {
         return self
     }

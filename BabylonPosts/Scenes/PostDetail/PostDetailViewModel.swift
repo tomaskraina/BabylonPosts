@@ -7,10 +7,8 @@
 //
 
 import Foundation
-
 import RxSwift
 import RxCocoa
-import RxDataSources
 import Action
 
 
@@ -33,7 +31,7 @@ protocol PostDetailViewModelOutputs {
     var numberOfCommentsCaption: Driver<String> { get }
 }
 
-protocol PostDetailViewModelling {
+protocol PostDetailViewModelType {
     var inputs: PostDetailViewModelInputs { get }
     var outputs: PostDetailViewModelOutputs { get }
 }
@@ -69,7 +67,7 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
             .asDriver(onErrorJustReturn: false)
         
         commentCount = commentsProvider.commentCount(postId: post.id)
-            .debug("storage.commentCount", trimOutput: true)
+            .debug("commentCount", trimOutput: true)
         
         isLoadingNumberOfComments = Observable
             .merge(requestCommentsAction.executing, commentCount.map { $0 == 0 } )
@@ -152,8 +150,8 @@ class PostDetailViewModel: PostDetailViewModelInputs, PostDetailViewModelOutputs
     private let commentCount: Observable<Int>
 }
 
-// MARK: - PostListViewModel+PostDetailViewModelling
-extension PostDetailViewModel: PostDetailViewModelling {
+// MARK: - PostListViewModel+PostDetailViewModelType
+extension PostDetailViewModel: PostDetailViewModelType {
     var inputs: PostDetailViewModelInputs {
         return self
     }

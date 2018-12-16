@@ -14,7 +14,7 @@ class PostDetailViewController: UIViewController {
 
     // MARK: - Configuration
     
-    var viewModel: PostDetailViewModelling!
+    var viewModel: PostDetailViewModelType!
     
     // MARK: - IBOutlets
     

@@ -9,13 +9,13 @@
 import Foundation
 import RxSwift
 
-class JSONPlaceholderApiClient: ApiClient {
+class JSONPlaceholderApiClient: ApiClientType {
     
-    init(networking: NetworkingProvider) {
+    init(networking: NetworkingType) {
         self.networking = networking
     }
     
-    let networking: NetworkingProvider
+    let networking: NetworkingType
     
     func requestPostList() -> Single<Posts> {
         let endpoint = JSONPlaceholderEndpoint.posts

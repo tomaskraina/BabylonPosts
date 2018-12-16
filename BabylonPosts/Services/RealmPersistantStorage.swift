@@ -11,7 +11,7 @@ import RxSwift
 import RxRealm
 import RealmSwift
 
-class RealmPersistantStorage: PersistentStorage {
+class RealmPersistantStorage: StorageType {
 
     enum Error: LocalizedError {
         case realmFailedToInitiate(error: Swift.Error)

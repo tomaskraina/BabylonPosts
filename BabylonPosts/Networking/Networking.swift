@@ -11,17 +11,9 @@ import Alamofire
 import CodableAlamofire
 import RxSwift
 
-// MARK: - Protocols
-
-protocol NetworkingProvider {
-    @discardableResult
-    func request<T: Decodable>(endpoint: Endpoint) -> Single<T>
-    var isLoading: Observable<Bool> { get }
-}
-
 // MARK: - Networking
 
-class Networking: NetworkingProvider {
+class Networking: NetworkingType {
     
     static let shared = Networking(manager: .default)
     

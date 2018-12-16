@@ -28,28 +28,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         struct AppDependencies: MainFlowCoordinator.Dependencies {
             
-            var storage: PersistentStorage {
+            var storage: StorageType {
                 return RealmPersistantStorage()
             }
             
-            var apiClient: ApiClient {
-//                return MockApiClient()
+            var apiClient: ApiClientType {
                 return JSONPlaceholderApiClient.init(networking: sharedNetworking)
             }
             
-            var dataProvider: DataProvidering {
+            var dataProvider: DataProviderType {
                 return DataProvider(apiClient: apiClient, storage: storage)
             }
             
-            var comments: CommentsProvider {
+            var comments: CommentsProviderType {
                 return dataProvider.comments
             }
             
-            var users: UsersProvider {
+            var users: UsersProviderType {
                 return dataProvider.users
             }
             
-            let sharedNetworking: NetworkingProvider = {
+            let sharedNetworking: NetworkingType = {
                 // Use ephemeral config in order to avoid url cache
                 let sessionManager = SessionManager(configuration: URLSessionConfiguration.ephemeral)
                 let networking = Networking(manager: sessionManager)

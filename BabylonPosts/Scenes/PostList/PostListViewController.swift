@@ -20,7 +20,7 @@ class PostListViewController: UITableViewController {
 
     // MARK: - Configuration
     
-    var viewModel: PostListViewModelling!
+    var viewModel: PostListViewModelType!
     
     weak var delegate: PostListViewControllerDelegate?
     

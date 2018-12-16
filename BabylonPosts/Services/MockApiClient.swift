@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MockApiClient: ApiClient {
+class MockApiClient: ApiClientType {
     
     private let defaultDelay: TimeInterval = 2.0
     
