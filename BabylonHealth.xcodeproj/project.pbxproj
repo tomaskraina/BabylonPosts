@@ -300,7 +300,6 @@
 				9CC8019221BF0E35008511CF /* UIFont+constants.swift */,
 				9C4DE36D218860A900EBD16F /* Assets.xcassets */,
 				9C4DE36F218860A900EBD16F /* LaunchScreen.storyboard */,
-				9C67290621C65C7B0098B708 /* 3rd Party */,
 				9C4A266F218AF4DC009316C1 /* Generated Code */,
 				9C67290721C65C900098B708 /* Localized Resources */,
 				9C4DE39B218867B000EBD16F /* Model */,
@@ -335,6 +334,7 @@
 				9C4DE38A2188654400EBD16F /* JSONPlaceholderEndpoint.swift */,
 				9C4DE38B2188654400EBD16F /* Networking.swift */,
 				9C4DE38C2188654400EBD16F /* NetworkingError.swift */,
+				9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -383,14 +383,6 @@
 				9C67290E21C661CF0098B708 /* DataProvider.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		9C67290621C65C7B0098B708 /* 3rd Party */ = {
-			isa = PBXGroup;
-			children = (
-				9C08475921BFC95D0085E0F0 /* RxActivityTracker.swift */,
-			);
-			path = "3rd Party";
 			sourceTree = "<group>";
 		};
 		9C67290721C65C900098B708 /* Localized Resources */ = {
